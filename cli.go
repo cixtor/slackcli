@@ -1,21 +1,28 @@
 package main
 
 import (
+	"bytes"
+	"encoding/json"
 	"flag"
 	"fmt"
+	"log"
+	"os"
 	"strings"
 
 	"github.com/cixtor/slackapi"
 )
 
+// Function defines a CLI method.
 type Function func() int
 
+// CLI defines the core of the program.
 type CLI struct {
 	binary   string
 	api      *slackapi.SlackAPI
 	commands []Command
 }
 
+// Command defines an option to call an API method.
 type Command struct {
 	Function Function
 	Name     string
@@ -23,6 +30,7 @@ type Command struct {
 	Help     string
 }
 
+// NewCLI returns an instance of CLI.
 func NewCLI(binary string) *CLI {
 	cli := new(CLI)
 
@@ -32,10 +40,32 @@ func NewCLI(binary string) *CLI {
 	return cli
 }
 
-func (cli *CLI) Register(fun func() int, name string, params []string, help string) {
+// Register adds support for a new command.
+func (cli *CLI) Register(fun Function, name string, params []string, help string) {
 	cli.commands = append(cli.commands, Command{fun, name, params, help})
 }
 
+// Execute calls a method to send a HTTP request to the web API service.
+func (cli *CLI) Execute() int {
+	flag.Parse()
+
+	query := flag.Arg(0)
+
+	/* default action */
+	if query == "" {
+		query = "help"
+	}
+
+	for _, command := range cli.commands {
+		if command.Name == query {
+			return command.Function()
+		}
+	}
+
+	return cli.CallHelp()
+}
+
+// PrintCommands builds the usage options for the help command.
 func (cli *CLI) PrintCommands() {
 	var line string
 	var lines []string
@@ -65,21 +95,34 @@ func (cli *CLI) PrintCommands() {
 	}
 }
 
-func (cli *CLI) Execute() int {
-	flag.Parse()
+// PrintJSON takes a generic struct with the response from the web API service
+// and then proceeds to encode it as a JSON string. It uses the JSON string to
+// obtain the status and possible errors from the HTTP request by re-decoding
+// into another smaller strust. It returns an Unix exit code representing the
+// success or failure of the operation, zero and one respectively.
+func (cli *CLI) PrintJSON(v interface{}) int {
+	var res slackapi.Response
 
-	query := flag.Arg(0)
+	out, err := json.MarshalIndent(v, "", "\x20\x20")
 
-	/* default action */
-	if query == "" {
-		query = "help"
+	if err != nil {
+		fmt.Printf("{\"ok\":false, \"error\":\"json.encode; %s\"}\n", err.Error())
+		return 1
 	}
 
-	for _, command := range cli.commands {
-		if command.Name == query {
-			return command.Function()
+	if err := json.NewDecoder(bytes.NewReader(out)).Decode(&res); err != nil {
+		fmt.Printf("{\"ok\":false, \"error\":\"json.decode; %s\"}\n", err.Error())
+		return 1
+	}
+
+	if !res.Ok && res.Error != "" {
+		if err := json.NewEncoder(os.Stdout).Encode(res); err != nil {
+			log.Fatalln("json.encode;", err)
 		}
+
+		return 1
 	}
 
-	return cli.CallHelp()
+	fmt.Printf("%s\n", out)
+	return 0
 }
