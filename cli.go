@@ -40,6 +40,12 @@ func NewCLI(binary string) *CLI {
 	return cli
 }
 
+// AutoAuthenticate searches for a token among the environment variablles to
+// authenticate the HTTP requests with the web API service.
+func (cli *CLI) AutoAuthenticate() {
+	cli.api.SetToken(os.Getenv("SLACK_TOKEN"))
+}
+
 // Register adds support for a new command.
 func (cli *CLI) Register(fun Function, name string, params []string, help string) {
 	cli.commands = append(cli.commands, Command{fun, name, params, help})
