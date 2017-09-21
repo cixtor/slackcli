@@ -1,11 +1,10 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
-	"os"
 )
 
+// CallHelp prints the description and usage options.
 func (cli *CLI) CallHelp() int {
 	fmt.Println("Slack CLI v" + version)
 	fmt.Println("  http://cixtor.com/")
@@ -28,16 +27,18 @@ func (cli *CLI) CallHelp() int {
 	return 0
 }
 
-func (cli *CLI) CallApiTest() int {
-	return 1
+// CallAPITest sends a http request with the api.test action.
+func (cli *CLI) CallAPITest() int {
+	return cli.PrintJSON(cli.api.APITest())
 }
 
+// CallAuthTest sends a http request with the auth.test action.
 func (cli *CLI) CallAuthTest() int {
-	json.NewEncoder(os.Stdout).Encode(cli.api.AuthTest())
-	return 1
+	return cli.PrintJSON(cli.api.AuthTest())
 }
 
+// CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
-	fmt.Printf("{\"version\":\"%s\"}", version)
+	fmt.Printf("{\"version\":\"%s\"}\n", version)
 	return 1
 }
