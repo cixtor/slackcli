@@ -37,6 +37,11 @@ func (cli *CLI) CallAppsList() int {
 	return cli.PrintJSON(cli.api.AppsList())
 }
 
+// CallAuthRevoke sends a http request with the auth.revoke action.
+func (cli *CLI) CallAuthRevoke() int {
+	return cli.PrintJSON(cli.api.AuthRevoke())
+}
+
 // CallAuthTest sends a http request with the auth.test action.
 func (cli *CLI) CallAuthTest() int {
 	return cli.PrintJSON(cli.api.AuthTest())
