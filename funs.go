@@ -32,6 +32,11 @@ func (cli *CLI) CallAPITest() int {
 	return cli.PrintJSON(cli.api.APITest())
 }
 
+// CallAppsList sends a http request with the apps.list action.
+func (cli *CLI) CallAppsList() int {
+	return cli.PrintJSON(cli.api.AppsList())
+}
+
 // CallAuthTest sends a http request with the auth.test action.
 func (cli *CLI) CallAuthTest() int {
 	return cli.PrintJSON(cli.api.AuthTest())
