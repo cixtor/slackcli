@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"strconv"
 	"strings"
 
 	"github.com/cixtor/slackapi"
@@ -131,4 +132,19 @@ func (cli *CLI) PrintJSON(v interface{}) int {
 
 	fmt.Printf("%s\n", out)
 	return 0
+}
+
+// Number attempts to decode the user input as an integer.
+func (cli *CLI) Number(index int, initial int) int {
+	input := flag.Arg(index)
+
+	if input == "" {
+		return initial
+	}
+
+	if number, err := strconv.Atoi(input); err != nil {
+		return number
+	}
+
+	return initial
 }
