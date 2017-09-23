@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 )
 
@@ -45,6 +46,11 @@ func (cli *CLI) CallAuthRevoke() int {
 // CallAuthTest sends a http request with the auth.test action.
 func (cli *CLI) CallAuthTest() int {
 	return cli.PrintJSON(cli.api.AuthTest())
+}
+
+// CallBotsInfo sends a http request with the bots.info action.
+func (cli *CLI) CallBotsInfo() int {
+	return cli.PrintJSON(cli.api.BotsInfo(flag.Arg(1)))
 }
 
 // CallVersion prints the program version.
