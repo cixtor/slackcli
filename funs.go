@@ -53,6 +53,11 @@ func (cli *CLI) CallBotsInfo() int {
 	return cli.PrintJSON(cli.api.BotsInfo(flag.Arg(1)))
 }
 
+// CallChannelsArchive sends a http request with the channels.archive action.
+func (cli *CLI) CallChannelsArchive() int {
+	return cli.PrintJSON(cli.api.ChannelsArchive(flag.Arg(1)))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
