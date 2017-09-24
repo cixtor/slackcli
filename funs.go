@@ -58,6 +58,11 @@ func (cli *CLI) CallChannelsArchive() int {
 	return cli.PrintJSON(cli.api.ChannelsArchive(flag.Arg(1)))
 }
 
+// CallChannelsCreate sends a http request with the channels.create action.
+func (cli *CLI) CallChannelsCreate() int {
+	return cli.PrintJSON(cli.api.ChannelsCreate(flag.Arg(1)))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
