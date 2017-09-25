@@ -3,6 +3,8 @@ package main
 import (
 	"flag"
 	"fmt"
+
+	"github.com/cixtor/slackapi"
 )
 
 // CallHelp prints the description and usage options.
@@ -61,6 +63,14 @@ func (cli *CLI) CallChannelsArchive() int {
 // CallChannelsCreate sends a http request with the channels.create action.
 func (cli *CLI) CallChannelsCreate() int {
 	return cli.PrintJSON(cli.api.ChannelsCreate(flag.Arg(1)))
+}
+
+// CallChannelsHistory sends a http request with the channels.history action.
+func (cli *CLI) CallChannelsHistory() int {
+	return cli.PrintJSON(cli.api.ChannelsHistory(slackapi.HistoryArgs{
+		Channel: flag.Arg(1),
+		Latest:  flag.Arg(2),
+	}))
 }
 
 // CallVersion prints the program version.
