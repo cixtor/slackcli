@@ -73,6 +73,14 @@ func (cli *CLI) CallChannelsHistory() int {
 	}))
 }
 
+// CallChannelsID sends a http request with the channels.id action.
+func (cli *CLI) CallChannelsID() int {
+	fmt.Printf(
+		"{\"ok\":true, \"channel\":\"%s\"}\n",
+		cli.api.ChannelsID(flag.Arg(1)))
+	return 0
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
