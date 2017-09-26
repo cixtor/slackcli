@@ -81,6 +81,11 @@ func (cli *CLI) CallChannelsID() int {
 	return 0
 }
 
+// CallChannelsInfo sends a http request with the channels.info action.
+func (cli *CLI) CallChannelsInfo() int {
+	return cli.PrintJSON(cli.api.ChannelsInfo(flag.Arg(1)))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
