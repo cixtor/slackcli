@@ -91,6 +91,11 @@ func (cli *CLI) CallChannelsInvite() int {
 	return cli.PrintJSON(cli.api.ChannelsInvite(flag.Arg(1), flag.Arg(2)))
 }
 
+// CallChannelsJoin sends a http request with the channels.join action.
+func (cli *CLI) CallChannelsJoin() int {
+	return cli.PrintJSON(cli.api.ChannelsJoin(flag.Arg(1)))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
