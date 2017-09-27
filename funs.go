@@ -96,6 +96,11 @@ func (cli *CLI) CallChannelsJoin() int {
 	return cli.PrintJSON(cli.api.ChannelsJoin(flag.Arg(1)))
 }
 
+// CallChannelsKick sends a http request with the channels.kick action.
+func (cli *CLI) CallChannelsKick() int {
+	return cli.PrintJSON(cli.api.ChannelsKick(flag.Arg(1), flag.Arg(2)))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
