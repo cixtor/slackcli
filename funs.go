@@ -101,6 +101,11 @@ func (cli *CLI) CallChannelsKick() int {
 	return cli.PrintJSON(cli.api.ChannelsKick(flag.Arg(1), flag.Arg(2)))
 }
 
+// CallChannelsLeave sends a http request with the channels.leave action.
+func (cli *CLI) CallChannelsLeave() int {
+	return cli.PrintJSON(cli.api.ChannelsLeave(flag.Arg(1)))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
