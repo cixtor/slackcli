@@ -116,6 +116,11 @@ func (cli *CLI) CallChannelsMark() int {
 	return cli.PrintJSON(cli.api.ChannelsMark(flag.Arg(1), flag.Arg(2)))
 }
 
+// CallChannelsMyHistory sends a http request with the channels.myHistory action.
+func (cli *CLI) CallChannelsMyHistory() int {
+	return cli.PrintJSON(cli.api.ChannelsMyHistory(flag.Arg(1), flag.Arg(2)))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
