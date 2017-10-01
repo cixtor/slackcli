@@ -121,6 +121,12 @@ func (cli *CLI) CallChannelsMyHistory() int {
 	return cli.PrintJSON(cli.api.ChannelsMyHistory(flag.Arg(1), flag.Arg(2)))
 }
 
+// CallChannelsPurgeHistory sends a http request with the channels.purgeHistory action.
+func (cli *CLI) CallChannelsPurgeHistory() int {
+	cli.api.ChannelsPurgeHistory(flag.Arg(1), flag.Arg(2), true)
+	return 0
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
