@@ -127,6 +127,11 @@ func (cli *CLI) CallChannelsPurgeHistory() int {
 	return 0
 }
 
+// CallChannelsRename sends a http request with the channels.rename action.
+func (cli *CLI) CallChannelsRename() int {
+	return cli.PrintJSON(cli.api.ChannelsRename(flag.Arg(1), flag.Arg(2)))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
