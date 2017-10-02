@@ -137,6 +137,11 @@ func (cli *CLI) CallChannelsSetPurpose() int {
 	return cli.PrintJSON(cli.api.ChannelsSetPurpose(flag.Arg(1), flag.Arg(2)))
 }
 
+// CallChannelsSetRetention sends a http request with the channels.setRetention action.
+func (cli *CLI) CallChannelsSetRetention() int {
+	return cli.PrintJSON(cli.api.ChannelsSetRetention(flag.Arg(1), cli.Number(2, 0)))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
