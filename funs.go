@@ -147,6 +147,11 @@ func (cli *CLI) CallChannelsSetTopic() int {
 	return cli.PrintJSON(cli.api.ChannelsSetTopic(flag.Arg(1), flag.Arg(2)))
 }
 
+// CallChannelsSuggestions sends a http request with the channels.suggestions action.
+func (cli *CLI) CallChannelsSuggestions() int {
+	return cli.PrintJSON(cli.api.ChannelsSuggestions())
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
