@@ -157,6 +157,14 @@ func (cli *CLI) CallChannelsUnarchive() int {
 	return cli.PrintJSON(cli.api.ChannelsUnarchive(flag.Arg(1)))
 }
 
+// CallChatDelete sends a http request with the chat.delete action.
+func (cli *CLI) CallChatDelete() int {
+	return cli.PrintJSON(cli.api.ChatDelete(slackapi.MessageArgs{
+		Channel: flag.Arg(1),
+		Ts:      flag.Arg(2),
+	}))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
