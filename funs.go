@@ -152,6 +152,11 @@ func (cli *CLI) CallChannelsSuggestions() int {
 	return cli.PrintJSON(cli.api.ChannelsSuggestions())
 }
 
+// CallChannelsUnarchive sends a http request with the channels.unarchive action.
+func (cli *CLI) CallChannelsUnarchive() int {
+	return cli.PrintJSON(cli.api.ChannelsUnarchive(flag.Arg(1)))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
