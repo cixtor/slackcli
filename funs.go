@@ -165,6 +165,14 @@ func (cli *CLI) CallChatDelete() int {
 	}))
 }
 
+// CallChatMeMessage sends a http request with the chat.meMessage action.
+func (cli *CLI) CallChatMeMessage() int {
+	return cli.PrintJSON(cli.api.ChatMeMessage(slackapi.MessageArgs{
+		Channel: flag.Arg(1),
+		Text:    flag.Arg(2),
+	}))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
