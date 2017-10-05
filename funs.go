@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"flag"
 	"fmt"
 
@@ -170,6 +171,21 @@ func (cli *CLI) CallChatMeMessage() int {
 	return cli.PrintJSON(cli.api.ChatMeMessage(slackapi.MessageArgs{
 		Channel: flag.Arg(1),
 		Text:    flag.Arg(2),
+	}))
+}
+
+// CallChatPostAttachment sends a http request with the chat.postAttachment action.
+func (cli *CLI) CallChatPostAttachment() int {
+	var data slackapi.Attachment
+
+	if err := json.Unmarshal([]byte(flag.Arg(2)), &data); err != nil {
+		fmt.Printf("{\"ok\":false, \"error\":\"json.decode; %s\"}\n", err.Error())
+		return 1
+	}
+
+	return cli.PrintJSON(cli.api.ChatPostMessage(slackapi.MessageArgs{
+		Channel:     flag.Arg(1),
+		Attachments: []slackapi.Attachment{data},
 	}))
 }
 
