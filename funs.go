@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
+	"os"
 
 	"github.com/cixtor/slackapi"
 )
@@ -195,6 +196,36 @@ func (cli *CLI) CallChatPostMessage() int {
 		Channel: flag.Arg(1),
 		Text:    flag.Arg(2),
 	}))
+}
+
+// CallChatRobotMessage sends a http request with the chat.robotMessage action.
+func (cli *CLI) CallChatRobotMessage() int {
+	robotName := os.Getenv("SLACK_ROBOT_NAME")
+	robotImage := os.Getenv("SLACK_ROBOT_IMAGE")
+
+	data := slackapi.MessageArgs{
+		Channel: flag.Arg(1),
+		Text:    flag.Arg(2),
+		AsUser:  false,
+	}
+
+	if robotName == "" {
+		robotName = "foobar"
+	}
+
+	if robotImage == "" {
+		robotImage = ":slack:"
+	}
+
+	data.Username = robotName
+
+	if robotImage[0] == ':' {
+		data.IconEmoji = robotImage
+	} else {
+		data.IconURL = robotImage
+	}
+
+	return cli.PrintJSON(cli.api.ChatPostMessage(data))
 }
 
 // CallVersion prints the program version.
