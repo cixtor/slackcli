@@ -189,6 +189,14 @@ func (cli *CLI) CallChatPostAttachment() int {
 	}))
 }
 
+// CallChatPostMessage sends a http request with the chat.postMessage action.
+func (cli *CLI) CallChatPostMessage() int {
+	return cli.PrintJSON(cli.api.ChatPostMessage(slackapi.MessageArgs{
+		Channel: flag.Arg(1),
+		Text:    flag.Arg(2),
+	}))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
