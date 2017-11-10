@@ -228,6 +228,15 @@ func (cli *CLI) CallChatRobotMessage() int {
 	return cli.PrintJSON(cli.api.ChatPostMessage(data))
 }
 
+// CallChatUpdate sends a http request with the chat.update action.
+func (cli *CLI) CallChatUpdate() int {
+	return cli.PrintJSON(cli.api.ChatUpdate(slackapi.MessageArgs{
+		Channel: flag.Arg(1),
+		Ts:      flag.Arg(2),
+		Text:    flag.Arg(3),
+	}))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
