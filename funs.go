@@ -237,6 +237,11 @@ func (cli *CLI) CallChatUpdate() int {
 	}))
 }
 
+// CallDndEndDnd sends a http request with the dnd.endDnd action.
+func (cli *CLI) CallDndEndDnd() int {
+	return cli.PrintJSON(cli.api.DNDEndDnd())
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
