@@ -252,6 +252,11 @@ func (cli *CLI) CallDndInfo() int {
 	return cli.PrintJSON(cli.api.DNDInfo(flag.Arg(1)))
 }
 
+// CallDndSetSnooze sends a http request with the dnd.setSnooze action.
+func (cli *CLI) CallDndSetSnooze() int {
+	return cli.PrintJSON(cli.api.DNDSetSnooze(cli.Number(1, 60)))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
