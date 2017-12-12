@@ -262,6 +262,11 @@ func (cli *CLI) CallDndTeamInfo() int {
 	return cli.PrintJSON(cli.api.DNDTeamInfo(flag.Arg(1)))
 }
 
+// CallEmojiList sends a http request with the emoji.list action.
+func (cli *CLI) CallEmojiList() int {
+	return cli.PrintJSON(cli.api.EmojiList())
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
