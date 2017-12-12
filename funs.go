@@ -267,6 +267,11 @@ func (cli *CLI) CallEmojiList() int {
 	return cli.PrintJSON(cli.api.EmojiList())
 }
 
+// CallEventlogHistory sends a http request with the eventlog.history action.
+func (cli *CLI) CallEventlogHistory() int {
+	return cli.PrintJSON(cli.api.EventlogHistory(flag.Arg(1)))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
