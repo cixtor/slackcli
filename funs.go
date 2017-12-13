@@ -272,6 +272,11 @@ func (cli *CLI) CallEventlogHistory() int {
 	return cli.PrintJSON(cli.api.EventlogHistory(flag.Arg(1)))
 }
 
+// CallFilesCommentsAdd sends a http request with the files.comments.add action.
+func (cli *CLI) CallFilesCommentsAdd() int {
+	return cli.PrintJSON(cli.api.FilesCommentsAdd(flag.Arg(1), flag.Arg(2)))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
