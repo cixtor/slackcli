@@ -282,6 +282,11 @@ func (cli *CLI) CallFilesCommentsDelete() int {
 	return cli.PrintJSON(cli.api.FilesCommentsDelete(flag.Arg(1), flag.Arg(2)))
 }
 
+// CallFilesCommentsEdit sends a http request with the files.comments.edit action.
+func (cli *CLI) CallFilesCommentsEdit() int {
+	return cli.PrintJSON(cli.api.FilesCommentsEdit(flag.Arg(1), flag.Arg(2), flag.Arg(3)))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
