@@ -1,7 +1,7 @@
 package main
 
 const binary = "slackcli"
-const version = "0.3.2"
+const version = "0.3.3"
 
 func main() {
 	cli := NewCLI(binary)
@@ -48,6 +48,7 @@ func main() {
 	cli.Register(cli.CallFilesCommentsAdd, "files.comments.add", []string{"file", "text"}, "Add a comment to an existing file")
 	cli.Register(cli.CallFilesCommentsDelete, "files.comments.delete", []string{"file", "fcid"}, "Deletes an existing comment on a file")
 	cli.Register(cli.CallFilesCommentsEdit, "files.comments.edit", []string{"file", "fcid", "text"}, "Edit an existing file comment")
+	cli.Register(cli.CallFilesDelete, "files.delete", []string{"file"}, "Deletes a file and associated comments")
 	cli.Register(cli.CallVersion, "version", []string{}, "Displays the program version number")
 	cli.Register(cli.CallHelp, "help", []string{}, "Displays usage and program options")
 
