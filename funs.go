@@ -300,6 +300,14 @@ func (cli *CLI) CallFilesInfo() int {
 		cli.Number(3, 1)))
 }
 
+// CallFilesList sends a http request with the files.list action.
+func (cli *CLI) CallFilesList() int {
+	return cli.PrintJSON(cli.api.FilesList(slackapi.FileListArgs{
+		Count: cli.Number(1, 1000),
+		Page:  cli.Number(2, 1),
+	}))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
