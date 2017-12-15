@@ -292,6 +292,14 @@ func (cli *CLI) CallFilesDelete() int {
 	return cli.PrintJSON(cli.api.FilesDelete(flag.Arg(1)))
 }
 
+// CallFilesInfo sends a http request with the files.info action.
+func (cli *CLI) CallFilesInfo() int {
+	return cli.PrintJSON(cli.api.FilesInfo(
+		flag.Arg(1),
+		cli.Number(2, 1000),
+		cli.Number(3, 1)))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
