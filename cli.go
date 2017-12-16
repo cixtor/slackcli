@@ -82,7 +82,7 @@ func (cli *CLI) PrintCommands() {
 		line = command.Name
 
 		for _, param := range command.Params {
-			fmt.Print("\x20[" + param + "]")
+			line += fmt.Sprint("\x20[" + param + "]")
 		}
 
 		if len(line) > maximum {
