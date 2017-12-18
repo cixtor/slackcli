@@ -326,6 +326,15 @@ func (cli *CLI) CallFilesListBeforeTime() int {
 	}))
 }
 
+// CallFilesListByChannel sends a http request with the files.listByChannel action.
+func (cli *CLI) CallFilesListByChannel() int {
+	return cli.PrintJSON(cli.api.FilesList(slackapi.FileListArgs{
+		Channel: flag.Arg(1),
+		Count:   cli.Number(2, 1000),
+		Page:    cli.Number(3, 1),
+	}))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)

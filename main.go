@@ -1,7 +1,7 @@
 package main
 
 const binary = "slackcli"
-const version = "0.3.7"
+const version = "0.3.8"
 
 func main() {
 	cli := NewCLI(binary)
@@ -53,6 +53,7 @@ func main() {
 	cli.Register(cli.CallFilesList, "files.list", []string{"count", "page"}, "Lists and filters team files")
 	cli.Register(cli.CallFilesListAfterTime, "files.listAfterTime", []string{"time", "count", "page"}, "Lists and filters team files after this timestamp (inclusive)")
 	cli.Register(cli.CallFilesListBeforeTime, "files.listBeforeTime", []string{"time", "count", "page"}, "Lists and filters team files before this timestamp (inclusive)")
+	cli.Register(cli.CallFilesListByChannel, "files.listByChannel", []string{"channel", "count", "page"}, "Lists and filters team files in a specific channel")
 	cli.Register(cli.CallVersion, "version", []string{}, "Displays the program version number")
 	cli.Register(cli.CallHelp, "help", []string{}, "Displays usage and program options")
 
