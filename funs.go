@@ -344,6 +344,15 @@ func (cli *CLI) CallFilesListByType() int {
 	}))
 }
 
+// CallFilesListByUser sends a http request with the files.listByUser action.
+func (cli *CLI) CallFilesListByUser() int {
+	return cli.PrintJSON(cli.api.FilesList(slackapi.FileListArgs{
+		User:  flag.Arg(1),
+		Count: cli.Number(2, 1000),
+		Page:  cli.Number(3, 1),
+	}))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
