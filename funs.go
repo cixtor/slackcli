@@ -353,6 +353,11 @@ func (cli *CLI) CallFilesListByUser() int {
 	}))
 }
 
+// CallFilesRevokePublicURL sends a http request with the files.revokePublicURL action.
+func (cli *CLI) CallFilesRevokePublicURL() int {
+	return cli.PrintJSON(cli.api.FilesRevokePublicURL(flag.Arg(1)))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
