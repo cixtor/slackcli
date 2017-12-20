@@ -363,6 +363,29 @@ func (cli *CLI) CallFilesSharedPublicURL() int {
 	return cli.PrintJSON(cli.api.FilesSharedPublicURL(flag.Arg(1)))
 }
 
+// CallFilesUpload sends a http request with the files.upload action.
+func (cli *CLI) CallFilesUpload() int {
+	var data slackapi.FileUploadArgs
+
+	data.Channels = flag.Arg(1)
+	data.File = "@" + flag.Arg(2)
+
+	// grab last part of the file path.
+	if strings.Contains(data.File, "/") {
+		index := strings.LastIndex(data.File, "/")
+		data.Filename = data.File[index+1 : len(data.File)]
+	} else {
+		data.Filename = data.File
+	}
+
+	// convert file name into a human title.
+	index := strings.Index(data.Filename, ".")
+	data.Title = data.Filename[0:index]
+	data.Title = strings.Replace(data.Title, "-", "\x20", -1)
+
+	return cli.PrintJSON(cli.api.FilesUpload(data))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
