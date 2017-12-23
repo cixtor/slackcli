@@ -402,6 +402,11 @@ func (cli *CLI) CallGroupsCreate() int {
 	return cli.PrintJSON(cli.api.GroupsCreate(flag.Arg(1)))
 }
 
+// CallGroupsCreateChild sends a http request with the groups.createChild action.
+func (cli *CLI) CallGroupsCreateChild() int {
+	return cli.PrintJSON(cli.api.GroupsCreateChild(flag.Arg(1)))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
