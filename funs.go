@@ -397,6 +397,11 @@ func (cli *CLI) CallGroupsClose() int {
 	return cli.PrintJSON(cli.api.GroupsClose(flag.Arg(1)))
 }
 
+// CallGroupsCreate sends a http request with the groups.create action.
+func (cli *CLI) CallGroupsCreate() int {
+	return cli.PrintJSON(cli.api.GroupsCreate(flag.Arg(1)))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
