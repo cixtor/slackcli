@@ -407,6 +407,14 @@ func (cli *CLI) CallGroupsCreateChild() int {
 	return cli.PrintJSON(cli.api.GroupsCreateChild(flag.Arg(1)))
 }
 
+// CallGroupsHistory sends a http request with the groups.history action.
+func (cli *CLI) CallGroupsHistory() int {
+	return cli.PrintJSON(cli.api.GroupsHistory(slackapi.HistoryArgs{
+		Channel: flag.Arg(1),
+		Latest:  flag.Arg(2),
+	}))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)

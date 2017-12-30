@@ -1,7 +1,7 @@
 package main
 
 const binary = "slackcli"
-const version = "0.4.3"
+const version = "0.4.4"
 
 func main() {
 	cli := NewCLI(binary)
@@ -63,6 +63,7 @@ func main() {
 	cli.Register(cli.CallGroupsClose, "groups.close", []string{"channel"}, "Closes a private channel")
 	cli.Register(cli.CallGroupsCreate, "groups.create", []string{"channel"}, "Creates a private channel")
 	cli.Register(cli.CallGroupsCreateChild, "groups.createChild", []string{"channel"}, "Clones and archives a private channel")
+	cli.Register(cli.CallGroupsHistory, "groups.history", []string{"channel", "time"}, "Fetches history of messages and events from a private channel")
 	cli.Register(cli.CallVersion, "version", []string{}, "Displays the program version number")
 	cli.Register(cli.CallHelp, "help", []string{}, "Displays usage and program options")
 
