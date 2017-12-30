@@ -415,6 +415,11 @@ func (cli *CLI) CallGroupsHistory() int {
 	}))
 }
 
+// CallGroupsID sends a http request with the groups.id action.
+func (cli *CLI) CallGroupsID() int {
+	return cli.PrintJSON(cli.api.GroupsID(flag.Arg(1)))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
