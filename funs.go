@@ -420,6 +420,11 @@ func (cli *CLI) CallGroupsID() int {
 	return cli.PrintJSON(cli.api.GroupsID(flag.Arg(1)))
 }
 
+// CallGroupsInfo sends a http request with the groups.info action.
+func (cli *CLI) CallGroupsInfo() int {
+	return cli.PrintJSON(cli.api.GroupsInfo(flag.Arg(1)))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
