@@ -425,6 +425,11 @@ func (cli *CLI) CallGroupsInfo() int {
 	return cli.PrintJSON(cli.api.GroupsInfo(flag.Arg(1)))
 }
 
+// CallGroupsInvite sends a http request with the groups.invite action.
+func (cli *CLI) CallGroupsInvite() int {
+	return cli.PrintJSON(cli.api.GroupsInvite(flag.Arg(1), flag.Arg(2)))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
