@@ -430,6 +430,11 @@ func (cli *CLI) CallGroupsInvite() int {
 	return cli.PrintJSON(cli.api.GroupsInvite(flag.Arg(1), flag.Arg(2)))
 }
 
+// CallGroupsKick sends a http request with the groups.kick action.
+func (cli *CLI) CallGroupsKick() int {
+	return cli.PrintJSON(cli.api.GroupsKick(flag.Arg(1), flag.Arg(2)))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
