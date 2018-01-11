@@ -435,6 +435,11 @@ func (cli *CLI) CallGroupsKick() int {
 	return cli.PrintJSON(cli.api.GroupsKick(flag.Arg(1), flag.Arg(2)))
 }
 
+// CallGroupsLeave sends a http request with the groups.leave action.
+func (cli *CLI) CallGroupsLeave() int {
+	return cli.PrintJSON(cli.api.GroupsLeave(flag.Arg(1)))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
