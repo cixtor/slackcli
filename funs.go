@@ -440,6 +440,11 @@ func (cli *CLI) CallGroupsLeave() int {
 	return cli.PrintJSON(cli.api.GroupsLeave(flag.Arg(1)))
 }
 
+// CallGroupsList sends a http request with the groups.list action.
+func (cli *CLI) CallGroupsList() int {
+	return cli.PrintJSON(cli.api.GroupsList())
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
