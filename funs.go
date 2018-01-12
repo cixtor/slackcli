@@ -445,6 +445,11 @@ func (cli *CLI) CallGroupsList() int {
 	return cli.PrintJSON(cli.api.GroupsList())
 }
 
+// CallGroupsMark sends a http request with the groups.mark action.
+func (cli *CLI) CallGroupsMark() int {
+	return cli.PrintJSON(cli.api.GroupsMark(flag.Arg(1), flag.Arg(2)))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
