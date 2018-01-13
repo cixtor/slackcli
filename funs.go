@@ -455,6 +455,11 @@ func (cli *CLI) CallGroupsMyHistory() int {
 	return cli.PrintJSON(cli.api.GroupsMyHistory(flag.Arg(1), flag.Arg(2)))
 }
 
+// CallGroupsOpen sends a http request with the groups.open action.
+func (cli *CLI) CallGroupsOpen() int {
+	return cli.PrintJSON(cli.api.GroupsOpen(flag.Arg(1)))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
