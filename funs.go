@@ -460,6 +460,11 @@ func (cli *CLI) CallGroupsOpen() int {
 	return cli.PrintJSON(cli.api.GroupsOpen(flag.Arg(1)))
 }
 
+// CallGroupsRename sends a http request with the groups.rename action.
+func (cli *CLI) CallGroupsRename() int {
+	return cli.PrintJSON(cli.api.GroupsRename(flag.Arg(1), flag.Arg(2)))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
