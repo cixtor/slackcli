@@ -465,6 +465,11 @@ func (cli *CLI) CallGroupsRename() int {
 	return cli.PrintJSON(cli.api.GroupsRename(flag.Arg(1), flag.Arg(2)))
 }
 
+// CallGroupsPurgeHistory sends a http request with the groups.purgeHistory action.
+func (cli *CLI) CallGroupsPurgeHistory() int {
+	cli.api.GroupsPurgeHistory(flag.Arg(1), flag.Arg(2), true)
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
