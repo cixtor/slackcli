@@ -470,6 +470,11 @@ func (cli *CLI) CallGroupsPurgeHistory() int {
 	cli.api.GroupsPurgeHistory(flag.Arg(1), flag.Arg(2), true)
 }
 
+// CallGroupsSetPurpose sends a http request with the groups.setPurpose action.
+func (cli *CLI) CallGroupsSetPurpose() int {
+	return cli.PrintJSON(cli.api.GroupsSetPurpose(flag.Arg(1), flag.Arg(2)))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
