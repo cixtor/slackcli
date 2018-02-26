@@ -475,6 +475,16 @@ func (cli *CLI) CallGroupsSetPurpose() int {
 	return cli.PrintJSON(cli.api.GroupsSetPurpose(flag.Arg(1), flag.Arg(2)))
 }
 
+// CallGroupsSetRetention sends a http request with the groups.setRetention action.
+func (cli *CLI) CallGroupsSetRetention() int {
+	return cli.PrintJSON(cli.api.GroupsSetRetention(flag.Arg(1), cli.Number(2, 0)))
+}
+
+// CallGroupsSetTopic sends a http request with the groups.setTopic action.
+func (cli *CLI) CallGroupsSetTopic() int {
+	return cli.PrintJSON(cli.api.GroupsSetTopic(flag.Arg(1), flag.Arg(2)))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
