@@ -495,6 +495,11 @@ func (cli *CLI) CallHelpIssuesList() int {
 	return cli.PrintJSON(cli.api.HelpIssuesList())
 }
 
+// CallImClose sends a http request with the im.close action.
+func (cli *CLI) CallImClose() int {
+	return cli.PrintJSON(cli.api.InstantMessageClose(flag.Arg(1)))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
