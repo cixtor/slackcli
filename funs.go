@@ -508,6 +508,11 @@ func (cli *CLI) CallImHistory() int {
 	}))
 }
 
+// CallImList sends a http request with the im.list action.
+func (cli *CLI) CallImList() int {
+	return cli.PrintJSON(cli.api.InstantMessageList())
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
