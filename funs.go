@@ -500,6 +500,14 @@ func (cli *CLI) CallImClose() int {
 	return cli.PrintJSON(cli.api.InstantMessageClose(flag.Arg(1)))
 }
 
+// CallImHistory sends a http request with the im.history action.
+func (cli *CLI) CallImHistory() int {
+	return cli.PrintJSON(cli.api.InstantMessageHistory(slackapi.HistoryArgs{
+		Channel: flag.Arg(1),
+		Latest:  flag.Arg(2),
+	}))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
