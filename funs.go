@@ -518,6 +518,11 @@ func (cli *CLI) CallImMark() int {
 	return cli.PrintJSON(cli.api.InstantMessageMark(flag.Arg(1), flag.Arg(2)))
 }
 
+// CallImMyHistory sends a http request with the im.myHistory action.
+func (cli *CLI) CallImMyHistory() int {
+	return cli.PrintJSON(cli.api.InstantMessageMyHistory(flag.Arg(1), flag.Arg(2)))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
