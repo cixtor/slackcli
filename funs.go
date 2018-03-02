@@ -528,6 +528,12 @@ func (cli *CLI) CallImOpen() int {
 	return cli.PrintJSON(cli.api.InstantMessageOpen(flag.Arg(1)))
 }
 
+// CallImPurgeHistory sends a http request with the im.purgeHistory action.
+func (cli *CLI) CallImPurgeHistory() int {
+	cli.api.InstantMessagePurgeHistory(flag.Arg(1), flag.Arg(2), true)
+	return 0
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
