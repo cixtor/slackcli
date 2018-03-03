@@ -534,6 +534,13 @@ func (cli *CLI) CallImPurgeHistory() int {
 	return 0
 }
 
+// CallMigrationExchange sends a http request with the migration.exchange action.
+func (cli *CLI) CallMigrationExchange() int {
+	users := strings.Split(flag.Arg(1), ",")
+	order := flag.Arg(2) == "true"
+	return cli.PrintJSON(cli.api.MigrationExchange(users, order))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
