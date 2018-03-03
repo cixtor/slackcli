@@ -541,6 +541,11 @@ func (cli *CLI) CallMigrationExchange() int {
 	return cli.PrintJSON(cli.api.MigrationExchange(users, order))
 }
 
+// CallMpimClose sends a http request with the mpim.close action.
+func (cli *CLI) CallMpimClose() int {
+	return cli.PrintJSON(cli.api.MultiPartyInstantMessageClose(flag.Arg(1)))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
