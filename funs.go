@@ -554,6 +554,11 @@ func (cli *CLI) CallMpimHistory() int {
 	}))
 }
 
+// CallMpimList sends a http request with the mpim.list action.
+func (cli *CLI) CallMpimList() int {
+	return cli.PrintJSON(cli.api.MultiPartyInstantMessageList())
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
