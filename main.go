@@ -1,7 +1,7 @@
 package main
 
 const binary = "slackcli"
-const version = "0.6.0"
+const version = "0.6.1"
 
 func main() {
 	cli := NewCLI(binary)
@@ -89,6 +89,7 @@ func main() {
 	cli.Register(cli.CallImPurgeHistory, "im.purgeHistory", []string{"channel", "time"}, "Deletes history of messages and events from direct message channel")
 	cli.Register(cli.CallMigrationExchange, "migration.exchange", []string{"users", "order"}, "For Enterprise Grid workspaces, map local user IDs to global user IDs")
 	cli.Register(cli.CallMpimClose, "mpim.close", []string{"channel"}, "Closes a multiparty direct message channel")
+	cli.Register(cli.CallMpimHistory, "mpim.history", []string{"channel", "time"}, "Fetches history of messages and events from a multiparty direct message")
 	cli.Register(cli.CallVersion, "version", []string{}, "Displays the program version number")
 	cli.Register(cli.CallHelp, "help", []string{}, "Displays usage and program options")
 
