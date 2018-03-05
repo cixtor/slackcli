@@ -564,6 +564,11 @@ func (cli *CLI) CallMpimListSimple() int {
 	return cli.PrintJSON(cli.api.MultiPartyInstantMessageListSimple())
 }
 
+// CallMpimMark sends a http request with the mpim.mark action.
+func (cli *CLI) CallMpimMark() int {
+	return cli.PrintJSON(cli.api.MultiPartyInstantMessageMark(flag.Arg(1), flag.Arg(2)))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
