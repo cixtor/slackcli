@@ -1,7 +1,7 @@
 package main
 
 const binary = "slackcli"
-const version = "0.6.4"
+const version = "0.6.5"
 
 func main() {
 	cli := NewCLI(binary)
@@ -93,6 +93,7 @@ func main() {
 	cli.Register(cli.CallMpimList, "mpim.list", []string{}, "Lists multiparty direct message channels for the calling user")
 	cli.Register(cli.CallMpimListSimple, "mpim.listSimple", []string{}, "Lists ID and members in a multiparty direct message channels")
 	cli.Register(cli.CallMpimMark, "mpim.mark", []string{"channel", "time"}, "Sets the read cursor in a multiparty direct message channel")
+	cli.Register(cli.CallMpimMyHistory, "mpim.myHistory", []string{"channel", "time"}, "Displays messages of the current user from multiparty direct message channel")
 	cli.Register(cli.CallVersion, "version", []string{}, "Displays the program version number")
 	cli.Register(cli.CallHelp, "help", []string{}, "Displays usage and program options")
 

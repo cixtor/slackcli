@@ -569,6 +569,11 @@ func (cli *CLI) CallMpimMark() int {
 	return cli.PrintJSON(cli.api.MultiPartyInstantMessageMark(flag.Arg(1), flag.Arg(2)))
 }
 
+// CallMpimMyHistory sends a http request with the mpim.myHistory action.
+func (cli *CLI) CallMpimMyHistory() int {
+	return cli.PrintJSON(cli.api.MultiPartyInstantMessageMyHistory(flag.Arg(1), flag.Arg(2)))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
