@@ -579,6 +579,12 @@ func (cli *CLI) CallMpimOpen() int {
 	return cli.PrintJSON(cli.api.MultiPartyInstantMessageOpen(strings.Split(flag.Arg(1), ",")))
 }
 
+// CallMpimPurgeHistory sends a http request with the mpim.purgeHistory action.
+func (cli *CLI) CallMpimPurgeHistory() int {
+	cli.api.MultiPartyInstantMessagePurgeHistory(flag.Arg(1), flag.Arg(2), true)
+	return 0
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
