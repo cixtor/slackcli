@@ -609,6 +609,14 @@ func (cli *CLI) CallReactionsAdd() int {
 	}))
 }
 
+// CallReactionsGet sends a http request with the reactions.get action.
+func (cli *CLI) CallReactionsGet() int {
+	return cli.PrintJSON(cli.api.ReactionsGet(slackapi.ReactionArgs{
+		Channel:   flag.Arg(1),
+		Timestamp: flag.Arg(2),
+	}))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
