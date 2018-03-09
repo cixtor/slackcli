@@ -600,6 +600,15 @@ func (cli *CLI) CallPinsRemove() int {
 	return cli.PrintJSON(cli.api.PinsRemove(flag.Arg(1), flag.Arg(2)))
 }
 
+// CallReactionsAdd sends a http request with the reactions.add action.
+func (cli *CLI) CallReactionsAdd() int {
+	return cli.PrintJSON(cli.api.ReactionsAdd(slackapi.ReactionArgs{
+		Channel:   flag.Arg(1),
+		Timestamp: flag.Arg(2),
+		Name:      flag.Arg(3),
+	}))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
