@@ -624,6 +624,15 @@ func (cli *CLI) CallReactionsList() int {
 	}))
 }
 
+// CallReactionsRemove sends a http request with the reactions.remove action.
+func (cli *CLI) CallReactionsRemove() int {
+	return cli.PrintJSON(cli.api.ReactionsRemove(slackapi.ReactionArgs{
+		Channel:   flag.Arg(1),
+		Timestamp: flag.Arg(2),
+		Name:      flag.Arg(3),
+	}))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
