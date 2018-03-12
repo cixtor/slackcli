@@ -633,6 +633,12 @@ func (cli *CLI) CallReactionsRemove() int {
 	}))
 }
 
+// CallRtmEvents sends a http request with the rtm.events action.
+func (cli *CLI) CallRtmEvents() int {
+	MonitorRealTimeMessages(cli.api)
+	return 0
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
