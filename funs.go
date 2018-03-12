@@ -639,6 +639,11 @@ func (cli *CLI) CallRtmEvents() int {
 	return 0
 }
 
+// CallStarsAdd sends a http request with the stars.add action.
+func (cli *CLI) CallStarsAdd() int {
+	return cli.PrintJSON(cli.api.StarsAdd(flag.Arg(1), flag.Arg(2)))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
