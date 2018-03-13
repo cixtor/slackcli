@@ -649,6 +649,11 @@ func (cli *CLI) CallStarsList() int {
 	return cli.PrintJSON(cli.api.StarsList(cli.Number(1, 1000), cli.Number(2, 1)))
 }
 
+// CallStarsRemove sends a http request with the stars.remove action.
+func (cli *CLI) CallStarsRemove() int {
+	return cli.PrintJSON(cli.api.StarsRemove(flag.Arg(1), flag.Arg(2)))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
