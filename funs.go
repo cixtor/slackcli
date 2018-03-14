@@ -662,6 +662,11 @@ func (cli *CLI) CallTeamAccessLogs() int {
 	}))
 }
 
+// CallTeamBillableInfo sends a http request with the team.billableInfo action.
+func (cli *CLI) CallTeamBillableInfo() int {
+	return cli.PrintJSON(cli.api.TeamBillableInfo(flag.Arg(1)))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
