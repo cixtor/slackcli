@@ -654,6 +654,14 @@ func (cli *CLI) CallStarsRemove() int {
 	return cli.PrintJSON(cli.api.StarsRemove(flag.Arg(1), flag.Arg(2)))
 }
 
+// CallTeamAccessLogs sends a http request with the team.accessLogs action.
+func (cli *CLI) CallTeamAccessLogs() int {
+	return cli.PrintJSON(cli.api.TeamAccessLogs(slackapi.AccessLogArgs{
+		Count: cli.Number(2, 1000),
+		Page:  cli.Number(3, 1),
+	}))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
