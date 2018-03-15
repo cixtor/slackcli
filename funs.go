@@ -672,6 +672,11 @@ func (cli *CLI) CallTeamInfo() int {
 	return cli.PrintJSON(cli.api.TeamInfo())
 }
 
+// CallTeamProfileGet sends a http request with the team.profile.get action.
+func (cli *CLI) CallTeamProfileGet() int {
+	return cli.PrintJSON(cli.api.TeamProfileGet())
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
