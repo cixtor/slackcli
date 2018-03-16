@@ -682,6 +682,11 @@ func (cli *CLI) CallUsersCounts() int {
 	return cli.PrintJSON(cli.api.UsersCounts())
 }
 
+// CallUsersDeletePhoto sends a http request with the users.deletePhoto action.
+func (cli *CLI) CallUsersDeletePhoto() int {
+	return cli.PrintJSON(cli.api.UsersDeletePhoto())
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
