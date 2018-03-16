@@ -677,6 +677,11 @@ func (cli *CLI) CallTeamProfileGet() int {
 	return cli.PrintJSON(cli.api.TeamProfileGet())
 }
 
+// CallUsersCounts sends a http request with the users.counts action.
+func (cli *CLI) CallUsersCounts() int {
+	return cli.PrintJSON(cli.api.UsersCounts())
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
