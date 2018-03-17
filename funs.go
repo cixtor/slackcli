@@ -692,6 +692,11 @@ func (cli *CLI) CallUsersGetPresence() int {
 	return cli.PrintJSON(cli.api.UsersGetPresence(flag.Arg(1)))
 }
 
+// CallUsersID sends a http request with the users.id action.
+func (cli *CLI) CallUsersID() int {
+	return cli.PrintJSON(cli.api.UsersID(flag.Arg(1)))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
