@@ -687,6 +687,11 @@ func (cli *CLI) CallUsersDeletePhoto() int {
 	return cli.PrintJSON(cli.api.UsersDeletePhoto())
 }
 
+// CallUsersGetPresence sends a http request with the users.getPresence action.
+func (cli *CLI) CallUsersGetPresence() int {
+	return cli.PrintJSON(cli.api.UsersGetPresence(flag.Arg(1)))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
