@@ -697,6 +697,11 @@ func (cli *CLI) CallUsersID() int {
 	return cli.PrintJSON(cli.api.UsersID(flag.Arg(1)))
 }
 
+// CallUsersIdentity sends a http request with the users.identity action.
+func (cli *CLI) CallUsersIdentity() int {
+	return cli.PrintJSON(cli.api.UsersIdentity())
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
