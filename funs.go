@@ -707,6 +707,11 @@ func (cli *CLI) CallUsersInfo() int {
 	return cli.PrintJSON(cli.api.UsersInfo(flag.Arg(1)))
 }
 
+// CallUsersList sends a http request with the users.list action.
+func (cli *CLI) CallUsersList() int {
+	return cli.PrintJSON(cli.api.UsersList())
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
