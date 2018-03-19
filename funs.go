@@ -712,6 +712,11 @@ func (cli *CLI) CallUsersList() int {
 	return cli.PrintJSON(cli.api.UsersList())
 }
 
+// CallUsersLookupByEmail sends a http request with the users.lookupByEmail action.
+func (cli *CLI) CallUsersLookupByEmail() int {
+	return cli.PrintJSON(cli.api.UsersLookupByEmail(flag.Arg(1)))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
