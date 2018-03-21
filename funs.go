@@ -722,6 +722,11 @@ func (cli *CLI) CallUsersPrefsGet() int {
 	return cli.PrintJSON(cli.api.UsersPrefsGet())
 }
 
+// CallUsersPrefsSet sends a http request with the users.prefs.set action.
+func (cli *CLI) CallUsersPrefsSet() int {
+	return cli.PrintJSON(cli.api.UsersPrefsSet(flag.Arg(1), flag.Arg(2)))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
