@@ -717,6 +717,11 @@ func (cli *CLI) CallUsersLookupByEmail() int {
 	return cli.PrintJSON(cli.api.UsersLookupByEmail(flag.Arg(1)))
 }
 
+// CallUsersPrefsGet sends a http request with the users.prefs.get action.
+func (cli *CLI) CallUsersPrefsGet() int {
+	return cli.PrintJSON(cli.api.UsersPrefsGet())
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
