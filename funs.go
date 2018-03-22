@@ -727,6 +727,11 @@ func (cli *CLI) CallUsersPrefsSet() int {
 	return cli.PrintJSON(cli.api.UsersPrefsSet(flag.Arg(1), flag.Arg(2)))
 }
 
+// CallUsersPreparePhoto sends a http request with the users.preparePhoto action.
+func (cli *CLI) CallUsersPreparePhoto() int {
+	return cli.PrintJSON(cli.api.UsersPreparePhoto(flag.Arg(1)))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
