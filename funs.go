@@ -742,6 +742,11 @@ func (cli *CLI) CallUsersProfileSet() int {
 	return cli.PrintJSON(cli.api.UsersProfileSet(flag.Arg(1), flag.Arg(2)))
 }
 
+// CallUsersSearch sends a http request with the users.search action.
+func (cli *CLI) CallUsersSearch() int {
+	return cli.PrintJSON(cli.api.UsersSearch(flag.Arg(1)))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
