@@ -747,6 +747,11 @@ func (cli *CLI) CallUsersSearch() int {
 	return cli.PrintJSON(cli.api.UsersSearch(flag.Arg(1)))
 }
 
+// CallUsersSetActive sends a http request with the users.setActive action.
+func (cli *CLI) CallUsersSetActive() int {
+	return cli.PrintJSON(cli.api.UsersSetActive())
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
