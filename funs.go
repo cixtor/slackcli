@@ -757,6 +757,11 @@ func (cli *CLI) CallUsersSetAvatar() int {
 	return cli.PrintJSON(cli.api.UsersSetAvatar(flag.Arg(1)))
 }
 
+// CallUsersSetEmail sends a http request with the users.setEmail action.
+func (cli *CLI) CallUsersSetEmail() int {
+	return cli.PrintJSON(cli.api.UsersProfileSet("email", flag.Arg(1)))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
