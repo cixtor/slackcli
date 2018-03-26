@@ -772,6 +772,11 @@ func (cli *CLI) CallUsersSetPresence() int {
 	return cli.PrintJSON(cli.api.UsersSetPresence(flag.Arg(1)))
 }
 
+// CallUsersSetStatus sends a http request with the users.setStatus action.
+func (cli *CLI) CallUsersSetStatus() int {
+	return cli.PrintJSON(cli.api.UsersSetStatus(flag.Arg(1), flag.Arg(2)))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
