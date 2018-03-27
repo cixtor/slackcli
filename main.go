@@ -1,7 +1,7 @@
 package main
 
 const binary = "slackcli"
-const version = "0.14.0"
+const version = "1.0.0"
 
 func main() {
 	cli := NewCLI(binary)

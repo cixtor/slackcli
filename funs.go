@@ -468,6 +468,7 @@ func (cli *CLI) CallGroupsRename() int {
 // CallGroupsPurgeHistory sends a http request with the groups.purgeHistory action.
 func (cli *CLI) CallGroupsPurgeHistory() int {
 	cli.api.GroupsPurgeHistory(flag.Arg(1), flag.Arg(2), true)
+	return 0
 }
 
 // CallGroupsSetPurpose sends a http request with the groups.setPurpose action.
@@ -635,7 +636,46 @@ func (cli *CLI) CallReactionsRemove() int {
 
 // CallRtmEvents sends a http request with the rtm.events action.
 func (cli *CLI) CallRtmEvents() int {
-	MonitorRealTimeMessages(cli.api)
+	rtm, err := cli.api.NewRTM(slackapi.RTMArgs{})
+
+	if err != nil {
+		fmt.Printf("{\"ok\":false, \"error\":\"rtm.events; %s\"}\n", err.Error())
+		return 1
+	}
+
+	go rtm.ManageEvents()
+
+	for msg := range rtm.Events {
+		switch event := msg.Data.(type) {
+		case *slackapi.HelloEvent:
+			fmt.Println("hello; connection established")
+
+		case *slackapi.PresenceChangeEvent:
+			fmt.Println("presence;", event.User, "=>", event.Presence)
+
+		case *slackapi.MessageEvent:
+			if event.Text == "disconnect" {
+				rtm.Disconnect()
+			} else {
+				fmt.Printf(
+					"message; %s@%s: %#v\n",
+					event.User,
+					event.Channel,
+					event.Text)
+			}
+
+		case *slackapi.ErrorEvent:
+			fmt.Println("error;", event.Text)
+
+		case *slackapi.ReconnectURLEvent:
+			fmt.Println("reconnect;", event.URL)
+
+		default:
+			fmt.Printf("%s; %#v\n", msg.Type, msg.Data)
+		}
+	}
+
+	fmt.Println("stopped")
 	return 0
 }
 
