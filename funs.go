@@ -79,7 +79,7 @@ func (cli *CLI) CallChannelsHistory() int {
 // CallChannelsID sends a http request with the channels.id action.
 func (cli *CLI) CallChannelsID() int {
 	fmt.Printf(
-		"{\"ok\":true, \"channel\":\"%s\"}\n",
+		"{\"ok\":true, \"id\":\"%s\"}\n",
 		cli.api.ChannelsID(flag.Arg(1)))
 	return 0
 }
@@ -418,7 +418,7 @@ func (cli *CLI) CallGroupsHistory() int {
 // CallGroupsID sends a http request with the groups.id action.
 func (cli *CLI) CallGroupsID() int {
 	fmt.Printf(
-		"{\"ok\":true, \"channel\":\"%s\"}\n",
+		"{\"ok\":true, \"id\":\"%s\"}\n",
 		cli.api.GroupsID(flag.Arg(1)))
 	return 0
 }
@@ -737,7 +737,10 @@ func (cli *CLI) CallUsersGetPresence() int {
 
 // CallUsersID sends a http request with the users.id action.
 func (cli *CLI) CallUsersID() int {
-	return cli.PrintJSON(cli.api.UsersID(flag.Arg(1)))
+	fmt.Printf(
+		"{\"ok\":true, \"id\":\"%s\"}\n",
+		cli.api.UsersID(flag.Arg(1)))
+	return 0
 }
 
 // CallUsersIdentity sends a http request with the users.identity action.
