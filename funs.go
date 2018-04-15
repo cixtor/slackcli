@@ -371,6 +371,11 @@ func (cli *CLI) CallFilesUpload() int {
 	data.Channels = flag.Arg(1)
 	data.File = "@" + flag.Arg(2)
 
+	if data.File == "@" {
+		fmt.Println("{\"ok\":false, \"error\":\"no file to upload\"}")
+		return 1
+	}
+
 	// grab last part of the file path.
 	if strings.Contains(data.File, "/") {
 		index := strings.LastIndex(data.File, "/")
@@ -379,10 +384,14 @@ func (cli *CLI) CallFilesUpload() int {
 		data.Filename = data.File
 	}
 
+	data.Title = data.Filename
+
 	// convert file name into a human title.
-	index := strings.Index(data.Filename, ".")
-	data.Title = data.Filename[0:index]
-	data.Title = strings.Replace(data.Title, "-", "\x20", -1)
+	if strings.Contains(data.Filename, ".") {
+		index := strings.Index(data.Filename, ".")
+		data.Title = data.Filename[0:index]
+		data.Title = strings.Replace(data.Title, "-", "\x20", -1)
+	}
 
 	return cli.PrintJSON(cli.api.FilesUpload(data))
 }
