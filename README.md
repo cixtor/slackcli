@@ -14,12 +14,8 @@ Use a [session token](https://api.slack.com/web#authentication) to authenticate 
 
 ```
 $ export SLACK_TOKEN=xoxs-token
-$ slackcli help
 $ slackcli auth.test
-$ slackcli chat.session
-username:channel> :token xoxs-token
-username:channel> :owner
-username:channel> :exit
+$ slackcli help
 ```
 
 You can also export an environment variable `SLACK_VERBOSE=true` to print additional information during the execution of certain operations to troubleshoot issues with either the communication with th API or the program in itself.
