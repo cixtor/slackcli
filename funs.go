@@ -696,6 +696,11 @@ func (cli *CLI) CallSignupCheckEmail() int {
 	return cli.PrintJSON(cli.api.SignupCheckEmail(flag.Arg(1)))
 }
 
+// CallSignupConfirmEmail sends a http request with the signup.confirmEmail action.
+func (cli *CLI) CallSignupConfirmEmail() int {
+	return cli.PrintJSON(cli.api.SignupConfirmEmail(flag.Arg(1)))
+}
+
 // CallStarsAdd sends a http request with the stars.add action.
 func (cli *CLI) CallStarsAdd() int {
 	return cli.PrintJSON(cli.api.StarsAdd(flag.Arg(1), flag.Arg(2)))
