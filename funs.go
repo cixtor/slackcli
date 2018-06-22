@@ -691,6 +691,11 @@ func (cli *CLI) CallRtmEvents() int {
 	return 0
 }
 
+// CallSignupCheckEmail sends a http request with the signup.checkEmail action.
+func (cli *CLI) CallSignupCheckEmail() int {
+	return cli.PrintJSON(cli.api.SignupCheckEmail(flag.Arg(1)))
+}
+
 // CallStarsAdd sends a http request with the stars.add action.
 func (cli *CLI) CallStarsAdd() int {
 	return cli.PrintJSON(cli.api.StarsAdd(flag.Arg(1), flag.Arg(2)))
