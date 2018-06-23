@@ -1,4 +1,4 @@
-### Slack CLI
+# Slack CLI [![GoReport](https://goreportcard.com/badge/github.com/cixtor/slackcli)](https://goreportcard.com/report/github.com/cixtor/slackcli)
 
 Slack, the _"messaging app for teams"_ offers an API that has been used to build multiple projects around it, from bots to independent clients as well as integrations with other external services. This project aims to offer a low level experience for advanced users that want to either drop the web client or interact with the API for testing purpose.
 
@@ -13,9 +13,9 @@ go get -u github.com/cixtor/slackcli
 Use a [session token](https://api.slack.com/web#authentication) to authenticate the HTTP requests against the API service. Slack automatically generates a token for your when you open a new session [here](https://slack.com/messages/); you can see this token in the JavaScript console of your web browser if you type `boot_data.api_token` but be aware that it will expire once you close the session, consider to use a [legacy token](https://api.slack.com/custom-integrations/legacy-tokens) instead.
 
 ```
-$ export SLACK_TOKEN=xoxs-token
-$ slackcli auth.test
-$ slackcli help
+export SLACK_TOKEN=xoxs-token
+slackcli auth.test
+slackcli help
 ```
 
 You can also export an environment variable `SLACK_VERBOSE=true` to print additional information during the execution of certain operations to troubleshoot issues with either the communication with th API or the program in itself.
