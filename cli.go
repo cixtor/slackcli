@@ -142,7 +142,7 @@ func (cli *CLI) Number(index int, initial int) int {
 		return initial
 	}
 
-	if number, err := strconv.Atoi(input); err != nil {
+	if number, err := strconv.Atoi(input); err == nil {
 		return number
 	}
 
