@@ -701,6 +701,15 @@ func (cli *CLI) CallSignupConfirmEmail() int {
 	return cli.PrintJSON(cli.api.SignupConfirmEmail(flag.Arg(1)))
 }
 
+// CallSearchAll sends a http request with the search.all action.
+func (cli *CLI) CallSearchAll() int {
+	return cli.PrintJSON(cli.api.SearchAll(slackapi.SearchArgs{
+		Query: flag.Arg(1),
+		Count: cli.Number(2, 20),
+		Page:  cli.Number(3, 1),
+	}))
+}
+
 // CallSearchFiles sends a http request with the search.files action.
 func (cli *CLI) CallSearchFiles() int {
 	return cli.PrintJSON(cli.api.SearchFiles(slackapi.SearchArgs{
