@@ -45,6 +45,7 @@ func NewCLI(binary string) *CLI {
 // authenticate the HTTP requests with the web API service.
 func (cli *CLI) AutoAuthenticate() {
 	cli.api.SetToken(os.Getenv("SLACK_TOKEN"))
+	cli.api.SetCookie(os.Getenv("SLACK_COOKIE"))
 }
 
 // Register adds support for a new command.
