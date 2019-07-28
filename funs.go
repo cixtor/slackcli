@@ -704,9 +704,11 @@ func (cli *CLI) CallSignupConfirmEmail() int {
 // CallSearchAll sends a http request with the search.all action.
 func (cli *CLI) CallSearchAll() int {
 	return cli.PrintJSON(cli.api.SearchAll(slackapi.SearchArgs{
-		Query: flag.Arg(1),
-		Count: cli.Number(2, 20),
-		Page:  cli.Number(3, 1),
+		Query:   flag.Arg(1),
+		Count:   cli.Number(2, 100),
+		Page:    cli.Number(3, 1),
+		Sort:    "timestamp",
+		SortDir: "desc",
 	}))
 }
 
