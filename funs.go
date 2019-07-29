@@ -715,9 +715,11 @@ func (cli *CLI) CallSearchAll() int {
 // CallSearchFiles sends a http request with the search.files action.
 func (cli *CLI) CallSearchFiles() int {
 	return cli.PrintJSON(cli.api.SearchFiles(slackapi.SearchArgs{
-		Query: flag.Arg(1),
-		Count: cli.Number(2, 20),
-		Page:  cli.Number(3, 1),
+		Query:   flag.Arg(1),
+		Count:   cli.Number(2, 100),
+		Page:    cli.Number(3, 1),
+		Sort:    "timestamp",
+		SortDir: "desc",
 	}))
 }
 
