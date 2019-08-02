@@ -791,7 +791,8 @@ func (cli *CLI) CallUsersGetPresence() int {
 func (cli *CLI) CallUsersID() int {
 	fmt.Printf(
 		"{\"ok\":true, \"id\":\"%s\"}\n",
-		cli.api.UsersID(flag.Arg(1)))
+		cli.api.UsersID(flag.Arg(1), cli.Number(2, 100)),
+	)
 	return 0
 }
 
@@ -807,7 +808,7 @@ func (cli *CLI) CallUsersInfo() int {
 
 // CallUsersList sends a http request with the users.list action.
 func (cli *CLI) CallUsersList() int {
-	return cli.PrintJSON(cli.api.UsersList())
+	return cli.PrintJSON(cli.api.UsersList(cli.Number(1, 100)))
 }
 
 // CallUsersLookupByEmail sends a http request with the users.lookupByEmail action.
@@ -842,7 +843,7 @@ func (cli *CLI) CallUsersProfileSet() int {
 
 // CallUsersSearch sends a http request with the users.search action.
 func (cli *CLI) CallUsersSearch() int {
-	return cli.PrintJSON(cli.api.UsersSearch(flag.Arg(1)))
+	return cli.PrintJSON(cli.api.UsersSearch(flag.Arg(1), cli.Number(2, 100)))
 }
 
 // CallUsersSetActive sends a http request with the users.setActive action.
