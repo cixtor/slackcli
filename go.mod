@@ -1,4 +1,4 @@
-module slackcli
+module github.com/cixtor/slackcli
 
 go 1.13
 
