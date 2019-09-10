@@ -50,7 +50,12 @@ func (cli *CLI) CallAuthRevoke() int {
 
 // CallAuthTest sends a http request with the auth.test action.
 func (cli *CLI) CallAuthTest() int {
-	return cli.PrintJSON(cli.api.AuthTest())
+	res, err := cli.api.AuthTest()
+	if err != nil {
+		fmt.Println(err)
+		return 1
+	}
+	return cli.PrintJSON(res)
 }
 
 // CallBotsInfo sends a http request with the bots.info action.
