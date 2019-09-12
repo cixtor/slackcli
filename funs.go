@@ -813,7 +813,7 @@ func (cli *CLI) CallUsersInfo() int {
 
 // CallUsersList sends a http request with the users.list action.
 func (cli *CLI) CallUsersList() int {
-	return cli.PrintJSON(cli.api.UsersList(cli.Number(1, 100)))
+	return cli.PrintJSON(cli.api.UsersList(cli.Number(1, 100), flag.Arg(2)))
 }
 
 // CallUsersLookupByEmail sends a http request with the users.lookupByEmail action.

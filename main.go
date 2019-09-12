@@ -122,7 +122,7 @@ func main() {
 	cli.Register(cli.CallUsersID, "users.id", []string{"user", "limit"}, "Gets user identifier from username")
 	cli.Register(cli.CallUsersIdentity, "users.identity", []string{}, "Get a user's identity")
 	cli.Register(cli.CallUsersInfo, "users.info", []string{"user"}, "Gets information about a user")
-	cli.Register(cli.CallUsersList, "users.list", []string{"limit"}, "Lists all users in a Slack team")
+	cli.Register(cli.CallUsersList, "users.list", []string{"limit", "cursor"}, "Lists all users in a Slack team")
 	cli.Register(cli.CallUsersLookupByEmail, "users.lookupByEmail", []string{"email"}, "Find a user with an email address")
 	cli.Register(cli.CallUsersPrefsGet, "users.prefs.get", []string{}, "Get user account preferences")
 	cli.Register(cli.CallUsersPrefsSet, "users.prefs.set", []string{"name", "value"}, "Set user account preferences")
