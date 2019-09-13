@@ -739,6 +739,19 @@ func (cli *CLI) CallSearchMessages() int {
 	}))
 }
 
+// CallSearchUsers sends a http request with the search.messages action.
+func (cli *CLI) CallSearchUsers() int {
+	out, err := cli.api.SearchUsers(slackapi.SearchUsersArgs{
+		Query: flag.Arg(1),
+		Count: cli.Number(2, 100),
+	})
+	if err != nil {
+		fmt.Println(err)
+		return 1
+	}
+	return cli.PrintJSON(out)
+}
+
 // CallStarsAdd sends a http request with the stars.add action.
 func (cli *CLI) CallStarsAdd() int {
 	return cli.PrintJSON(cli.api.StarsAdd(flag.Arg(1), flag.Arg(2)))
@@ -844,11 +857,6 @@ func (cli *CLI) CallUsersProfileGet() int {
 // CallUsersProfileSet sends a http request with the users.profile.set action.
 func (cli *CLI) CallUsersProfileSet() int {
 	return cli.PrintJSON(cli.api.UsersProfileSet(flag.Arg(1), flag.Arg(2)))
-}
-
-// CallUsersSearch sends a http request with the users.search action.
-func (cli *CLI) CallUsersSearch() int {
-	return cli.PrintJSON(cli.api.UsersSearch(flag.Arg(1), cli.Number(2, 100)))
 }
 
 // CallUsersSetActive sends a http request with the users.setActive action.
