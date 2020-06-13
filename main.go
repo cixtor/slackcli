@@ -58,7 +58,6 @@ func main() {
 	cli.Register(cli.CallFilesRevokePublicURL, "files.revokePublicURL", []string{"file"}, "Revokes public/external sharing access for a file")
 	cli.Register(cli.CallFilesSharedPublicURL, "files.sharedPublicURL", []string{"file"}, "Enables a file for public/external sharing")
 	cli.Register(cli.CallFilesUpload, "files.upload", []string{"channel", "filename"}, "Uploads or creates a file from local data")
-	cli.Register(cli.CallGroupsArchive, "groups.archive", []string{"channel"}, "Archives a private channel")
 	cli.Register(cli.CallGroupsClose, "groups.close", []string{"channel"}, "Closes a private channel")
 	cli.Register(cli.CallGroupsCreate, "groups.create", []string{"channel"}, "Creates a private channel")
 	cli.Register(cli.CallGroupsCreateChild, "groups.createChild", []string{"channel"}, "Clones and archives a private channel")
