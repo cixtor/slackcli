@@ -13,7 +13,6 @@ func main() {
 	cli.Register(cli.CallAuthRevoke, "auth.revoke", []string{}, "Revokes a token")
 	cli.Register(cli.CallAuthTest, "auth.test", []string{}, "Checks authentication and identity")
 	cli.Register(cli.CallBotsInfo, "bots.info", []string{"bot"}, "Gets information about a bot user")
-	cli.Register(cli.CallChannelsCreate, "channels.create", []string{"channel"}, "Creates a channel if authorized")
 	cli.Register(cli.CallChannelsHistory, "channels.history", []string{"channel", "time"}, "Fetches history of messages and events from a channel")
 	cli.Register(cli.CallChannelsID, "channels.id", []string{"channel"}, "Gets channel identifier from readable name")
 	cli.Register(cli.CallChannelsInfo, "channels.info", []string{"channel"}, "Gets information about a channel")

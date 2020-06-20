@@ -63,11 +63,6 @@ func (cli *CLI) CallBotsInfo() int {
 	return cli.PrintJSON(cli.api.BotsInfo(flag.Arg(1)))
 }
 
-// CallChannelsCreate sends a http request with the channels.create action.
-func (cli *CLI) CallChannelsCreate() int {
-	return cli.PrintJSON(cli.api.ChannelsCreate(flag.Arg(1)))
-}
-
 // CallChannelsHistory sends a http request with the channels.history action.
 func (cli *CLI) CallChannelsHistory() int {
 	return cli.PrintJSON(cli.api.ChannelsHistory(slackapi.HistoryArgs{
