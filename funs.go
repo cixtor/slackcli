@@ -401,14 +401,6 @@ func (cli *CLI) CallGroupsHistory() int {
 	}))
 }
 
-// CallGroupsID sends a http request with the groups.id action.
-func (cli *CLI) CallGroupsID() int {
-	fmt.Printf(
-		"{\"ok\":true, \"id\":\"%s\"}\n",
-		cli.api.GroupsID(flag.Arg(1)))
-	return 0
-}
-
 // CallGroupsInfo sends a http request with the groups.info action.
 func (cli *CLI) CallGroupsInfo() int {
 	return cli.PrintJSON(cli.api.GroupsInfo(flag.Arg(1)))

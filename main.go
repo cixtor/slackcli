@@ -59,7 +59,6 @@ func main() {
 	cli.Register(cli.CallGroupsClose, "groups.close", []string{"channel"}, "Closes a private channel")
 	cli.Register(cli.CallGroupsCreateChild, "groups.createChild", []string{"channel"}, "Clones and archives a private channel")
 	cli.Register(cli.CallGroupsHistory, "groups.history", []string{"channel", "time"}, "Fetches history of messages and events from a private channel")
-	cli.Register(cli.CallGroupsID, "groups.id", []string{"channel"}, "Gets private channel identifier from readable name")
 	cli.Register(cli.CallGroupsInfo, "groups.info", []string{"channel"}, "Gets information about a private channel")
 	cli.Register(cli.CallGroupsInvite, "groups.invite", []string{"channel", "user"}, "Invites a user to a private channel")
 	cli.Register(cli.CallGroupsKick, "groups.kick", []string{"channel", "user"}, "Removes a user from a private channel")
