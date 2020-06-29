@@ -71,11 +71,6 @@ func (cli *CLI) CallChannelsHistory() int {
 	}))
 }
 
-// CallChannelsInfo sends a http request with the channels.info action.
-func (cli *CLI) CallChannelsInfo() int {
-	return cli.PrintJSON(cli.api.ChannelsInfo(flag.Arg(1)))
-}
-
 // CallChannelsInvite sends a http request with the channels.invite action.
 func (cli *CLI) CallChannelsInvite() int {
 	return cli.PrintJSON(cli.api.ChannelsInvite(flag.Arg(1), flag.Arg(2)))
