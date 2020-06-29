@@ -396,11 +396,6 @@ func (cli *CLI) CallGroupsHistory() int {
 	}))
 }
 
-// CallGroupsInfo sends a http request with the groups.info action.
-func (cli *CLI) CallGroupsInfo() int {
-	return cli.PrintJSON(cli.api.GroupsInfo(flag.Arg(1)))
-}
-
 // CallGroupsInvite sends a http request with the groups.invite action.
 func (cli *CLI) CallGroupsInvite() int {
 	return cli.PrintJSON(cli.api.GroupsInvite(flag.Arg(1), flag.Arg(2)))
