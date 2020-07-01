@@ -426,11 +426,6 @@ func (cli *CLI) CallGroupsOpen() int {
 	return cli.PrintJSON(cli.api.GroupsOpen(flag.Arg(1)))
 }
 
-// CallGroupsRename sends a http request with the groups.rename action.
-func (cli *CLI) CallGroupsRename() int {
-	return cli.PrintJSON(cli.api.GroupsRename(flag.Arg(1), flag.Arg(2)))
-}
-
 // CallGroupsPurgeHistory sends a http request with the groups.purgeHistory action.
 func (cli *CLI) CallGroupsPurgeHistory() int {
 	cli.api.GroupsPurgeHistory(flag.Arg(1), flag.Arg(2), true)

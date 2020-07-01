@@ -64,7 +64,6 @@ func main() {
 	cli.Register(cli.CallGroupsMark, "groups.mark", []string{"channel", "time"}, "Sets the read cursor in a private channel")
 	cli.Register(cli.CallGroupsMyHistory, "groups.myHistory", []string{"channel", "time"}, "Displays messages of the current user from a private channel")
 	cli.Register(cli.CallGroupsOpen, "groups.open", []string{"group"}, "Opens a private channel")
-	cli.Register(cli.CallGroupsRename, "groups.rename", []string{"channel", "name"}, "Renames a private channel")
 	cli.Register(cli.CallGroupsPurgeHistory, "groups.purgeHistory", []string{"channel", "time"}, "Deletes history of messages and events from a private channel")
 	cli.Register(cli.CallGroupsSetPurpose, "groups.setPurpose", []string{"channel", "purpose"}, "Sets the purpose for a private channel")
 	cli.Register(cli.CallGroupsSetRetention, "groups.setRetention", []string{"channel", "duration"}, "Sets the retention time of the messages")
