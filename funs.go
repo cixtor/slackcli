@@ -112,11 +112,6 @@ func (cli *CLI) CallChannelsPurgeHistory() int {
 	return 0
 }
 
-// CallChannelsRename sends a http request with the channels.rename action.
-func (cli *CLI) CallChannelsRename() int {
-	return cli.PrintJSON(cli.api.ChannelsRename(flag.Arg(1), flag.Arg(2)))
-}
-
 // CallChannelsSetPurpose sends a http request with the channels.setPurpose action.
 func (cli *CLI) CallChannelsSetPurpose() int {
 	return cli.PrintJSON(cli.api.ChannelsSetPurpose(flag.Arg(1), flag.Arg(2)))

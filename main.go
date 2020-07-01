@@ -22,7 +22,6 @@ func main() {
 	cli.Register(cli.CallChannelsMark, "channels.mark", []string{"channel", "time"}, "Sets the read cursor in a channel")
 	cli.Register(cli.CallChannelsMyHistory, "channels.myHistory", []string{"channel", "time"}, "Displays messages of the current user from a channel")
 	cli.Register(cli.CallChannelsPurgeHistory, "channels.purgeHistory", []string{"channel", "time"}, "Deletes history of messages and events from a channel")
-	cli.Register(cli.CallChannelsRename, "channels.rename", []string{"channel", "name"}, "Renames a channel")
 	cli.Register(cli.CallChannelsSetPurpose, "channels.setPurpose", []string{"channel", "purpose"}, "Sets the purpose for a channel")
 	cli.Register(cli.CallChannelsSetRetention, "channels.setRetention", []string{"channel", "duration"}, "Sets the retention time of the messages")
 	cli.Register(cli.CallChannelsSetTopic, "channels.setTopic", []string{"channel", "topic"}, "Sets the topic for a channel")
