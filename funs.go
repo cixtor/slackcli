@@ -91,11 +91,6 @@ func (cli *CLI) CallChannelsLeave() int {
 	return cli.PrintJSON(cli.api.ChannelsLeave(flag.Arg(1)))
 }
 
-// CallChannelsList sends a http request with the channels.list action.
-func (cli *CLI) CallChannelsList() int {
-	return cli.PrintJSON(cli.api.ChannelsList())
-}
-
 // CallChannelsMark sends a http request with the channels.mark action.
 func (cli *CLI) CallChannelsMark() int {
 	return cli.PrintJSON(cli.api.ChannelsMark(flag.Arg(1), flag.Arg(2)))
