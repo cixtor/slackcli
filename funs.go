@@ -401,11 +401,6 @@ func (cli *CLI) CallGroupsLeave() int {
 	return cli.PrintJSON(cli.api.GroupsLeave(flag.Arg(1)))
 }
 
-// CallGroupsList sends a http request with the groups.list action.
-func (cli *CLI) CallGroupsList() int {
-	return cli.PrintJSON(cli.api.GroupsList())
-}
-
 // CallGroupsMark sends a http request with the groups.mark action.
 func (cli *CLI) CallGroupsMark() int {
 	return cli.PrintJSON(cli.api.GroupsMark(flag.Arg(1), flag.Arg(2)))
