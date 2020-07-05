@@ -86,11 +86,6 @@ func (cli *CLI) CallChannelsKick() int {
 	return cli.PrintJSON(cli.api.ChannelsKick(flag.Arg(1), flag.Arg(2)))
 }
 
-// CallChannelsLeave sends a http request with the channels.leave action.
-func (cli *CLI) CallChannelsLeave() int {
-	return cli.PrintJSON(cli.api.ChannelsLeave(flag.Arg(1)))
-}
-
 // CallChannelsMyHistory sends a http request with the channels.myHistory action.
 func (cli *CLI) CallChannelsMyHistory() int {
 	return cli.PrintJSON(cli.api.ChannelsMyHistory(flag.Arg(1), flag.Arg(2)))
