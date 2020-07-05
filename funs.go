@@ -386,11 +386,6 @@ func (cli *CLI) CallGroupsKick() int {
 	return cli.PrintJSON(cli.api.GroupsKick(flag.Arg(1), flag.Arg(2)))
 }
 
-// CallGroupsLeave sends a http request with the groups.leave action.
-func (cli *CLI) CallGroupsLeave() int {
-	return cli.PrintJSON(cli.api.GroupsLeave(flag.Arg(1)))
-}
-
 // CallGroupsMyHistory sends a http request with the groups.myHistory action.
 func (cli *CLI) CallGroupsMyHistory() int {
 	return cli.PrintJSON(cli.api.GroupsMyHistory(flag.Arg(1), flag.Arg(2)))
