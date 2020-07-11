@@ -81,11 +81,6 @@ func (cli *CLI) CallChannelsJoin() int {
 	return cli.PrintJSON(cli.api.ChannelsJoin(flag.Arg(1)))
 }
 
-// CallChannelsKick sends a http request with the channels.kick action.
-func (cli *CLI) CallChannelsKick() int {
-	return cli.PrintJSON(cli.api.ChannelsKick(flag.Arg(1), flag.Arg(2)))
-}
-
 // CallChannelsMyHistory sends a http request with the channels.myHistory action.
 func (cli *CLI) CallChannelsMyHistory() int {
 	return cli.PrintJSON(cli.api.ChannelsMyHistory(flag.Arg(1), flag.Arg(2)))
