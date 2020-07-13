@@ -107,11 +107,6 @@ func (cli *CLI) CallChannelsSuggestions() int {
 	return cli.PrintJSON(cli.api.ChannelsSuggestions())
 }
 
-// CallChannelsUnarchive sends a http request with the channels.unarchive action.
-func (cli *CLI) CallChannelsUnarchive() int {
-	return cli.PrintJSON(cli.api.ChannelsUnarchive(flag.Arg(1)))
-}
-
 // CallChatDelete sends a http request with the chat.delete action.
 func (cli *CLI) CallChatDelete() int {
 	return cli.PrintJSON(cli.api.ChatDelete(slackapi.MessageArgs{

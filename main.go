@@ -21,7 +21,6 @@ func main() {
 	cli.Register(cli.CallChannelsSetRetention, "channels.setRetention", []string{"channel", "duration"}, "Sets the retention time of the messages")
 	cli.Register(cli.CallChannelsSetTopic, "channels.setTopic", []string{"channel", "topic"}, "Sets the topic for a channel")
 	cli.Register(cli.CallChannelsSuggestions, "channels.suggestions", []string{}, "Prints a list of suggested channels to join")
-	cli.Register(cli.CallChannelsUnarchive, "channels.unarchive", []string{"channel"}, "Unarchives a channel")
 	cli.Register(cli.CallChatDelete, "chat.delete", []string{"channel", "time"}, "Deletes a message")
 	cli.Register(cli.CallChatMeMessage, "chat.meMessage", []string{"channel", "text"}, "Share a me message into a channel")
 	cli.Register(cli.CallChatPostAttachment, "chat.postAttachment", []string{"channel", "json"}, "Sends an attachment to a channel")
