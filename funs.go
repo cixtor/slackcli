@@ -392,11 +392,6 @@ func (cli *CLI) CallGroupsSetTopic() int {
 	return cli.PrintJSON(cli.api.GroupsSetTopic(flag.Arg(1), flag.Arg(2)))
 }
 
-// CallGroupsUnarchive sends a http request with the groups.unarchive action.
-func (cli *CLI) CallGroupsUnarchive() int {
-	return cli.PrintJSON(cli.api.GroupsUnarchive(flag.Arg(1)))
-}
-
 // CallHelpIssuesList sends a http request with the help.issues.list action.
 func (cli *CLI) CallHelpIssuesList() int {
 	return cli.PrintJSON(cli.api.HelpIssuesList())
