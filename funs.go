@@ -92,11 +92,6 @@ func (cli *CLI) CallChannelsSetPurpose() int {
 	return cli.PrintJSON(cli.api.ChannelsSetPurpose(flag.Arg(1), flag.Arg(2)))
 }
 
-// CallChannelsSetRetention sends a http request with the channels.setRetention action.
-func (cli *CLI) CallChannelsSetRetention() int {
-	return cli.PrintJSON(cli.api.ChannelsSetRetention(flag.Arg(1), cli.Number(2, 0)))
-}
-
 // CallChannelsSuggestions sends a http request with the channels.suggestions action.
 func (cli *CLI) CallChannelsSuggestions() int {
 	return cli.PrintJSON(cli.api.ChannelsSuggestions())
