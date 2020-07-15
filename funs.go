@@ -372,11 +372,6 @@ func (cli *CLI) CallGroupsSetPurpose() int {
 	return cli.PrintJSON(cli.api.GroupsSetPurpose(flag.Arg(1), flag.Arg(2)))
 }
 
-// CallGroupsSetRetention sends a http request with the groups.setRetention action.
-func (cli *CLI) CallGroupsSetRetention() int {
-	return cli.PrintJSON(cli.api.GroupsSetRetention(flag.Arg(1), cli.Number(2, 0)))
-}
-
 // CallHelpIssuesList sends a http request with the help.issues.list action.
 func (cli *CLI) CallHelpIssuesList() int {
 	return cli.PrintJSON(cli.api.HelpIssuesList())
