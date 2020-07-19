@@ -51,7 +51,6 @@ func main() {
 	cli.Register(cli.CallGroupsMyHistory, "groups.myHistory", []string{"channel", "time"}, "Displays messages of the current user from a private channel")
 	cli.Register(cli.CallGroupsOpen, "groups.open", []string{"group"}, "Opens a private channel")
 	cli.Register(cli.CallGroupsPurgeHistory, "groups.purgeHistory", []string{"channel", "time"}, "Deletes history of messages and events from a private channel")
-	cli.Register(cli.CallGroupsSetPurpose, "groups.setPurpose", []string{"channel", "purpose"}, "Sets the purpose for a private channel")
 	cli.Register(cli.CallHelpIssuesList, "help.issues.list", []string{}, "List issues reported by the current user")
 	cli.Register(cli.CallImClose, "im.close", []string{"channel"}, "Close a direct message channel")
 	cli.Register(cli.CallImHistory, "im.history", []string{"channel", "time"}, "Fetches history of messages and events from direct message channel")
