@@ -87,11 +87,6 @@ func (cli *CLI) CallChannelsPurgeHistory() int {
 	return 0
 }
 
-// CallChannelsSetPurpose sends a http request with the channels.setPurpose action.
-func (cli *CLI) CallChannelsSetPurpose() int {
-	return cli.PrintJSON(cli.api.ChannelsSetPurpose(flag.Arg(1), flag.Arg(2)))
-}
-
 // CallChannelsSuggestions sends a http request with the channels.suggestions action.
 func (cli *CLI) CallChannelsSuggestions() int {
 	return cli.PrintJSON(cli.api.ChannelsSuggestions())
