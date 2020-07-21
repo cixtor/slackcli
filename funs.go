@@ -330,14 +330,6 @@ func (cli *CLI) CallGroupsCreateChild() int {
 	return cli.PrintJSON(cli.api.GroupsCreateChild(flag.Arg(1)))
 }
 
-// CallGroupsHistory sends a http request with the groups.history action.
-func (cli *CLI) CallGroupsHistory() int {
-	return cli.PrintJSON(cli.api.GroupsHistory(slackapi.HistoryArgs{
-		Channel: flag.Arg(1),
-		Latest:  flag.Arg(2),
-	}))
-}
-
 // CallGroupsMyHistory sends a http request with the groups.myHistory action.
 func (cli *CLI) CallGroupsMyHistory() int {
 	return cli.PrintJSON(cli.api.GroupsMyHistory(flag.Arg(1), flag.Arg(2)))
