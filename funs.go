@@ -325,11 +325,6 @@ func (cli *CLI) CallGroupsCreateChild() int {
 	return cli.PrintJSON(cli.api.GroupsCreateChild(flag.Arg(1)))
 }
 
-// CallGroupsMyHistory sends a http request with the groups.myHistory action.
-func (cli *CLI) CallGroupsMyHistory() int {
-	return cli.PrintJSON(cli.api.GroupsMyHistory(flag.Arg(1), flag.Arg(2)))
-}
-
 // CallGroupsOpen sends a http request with the groups.open action.
 func (cli *CLI) CallGroupsOpen() int {
 	return cli.PrintJSON(cli.api.GroupsOpen(flag.Arg(1)))
