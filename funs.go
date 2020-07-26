@@ -324,12 +324,6 @@ func (cli *CLI) CallGroupsOpen() int {
 	return cli.PrintJSON(cli.api.GroupsOpen(flag.Arg(1)))
 }
 
-// CallGroupsPurgeHistory sends a http request with the groups.purgeHistory action.
-func (cli *CLI) CallGroupsPurgeHistory() int {
-	cli.api.GroupsPurgeHistory(flag.Arg(1), flag.Arg(2), true)
-	return 0
-}
-
 // CallHelpIssuesList sends a http request with the help.issues.list action.
 func (cli *CLI) CallHelpIssuesList() int {
 	return cli.PrintJSON(cli.api.HelpIssuesList())
