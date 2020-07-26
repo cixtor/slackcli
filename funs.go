@@ -68,12 +68,6 @@ func (cli *CLI) CallChannelsJoin() int {
 	return cli.PrintJSON(cli.api.ChannelsJoin(flag.Arg(1)))
 }
 
-// CallChannelsPurgeHistory sends a http request with the channels.purgeHistory action.
-func (cli *CLI) CallChannelsPurgeHistory() int {
-	cli.api.ChannelsPurgeHistory(flag.Arg(1), flag.Arg(2), true)
-	return 0
-}
-
 // CallChannelsSuggestions sends a http request with the channels.suggestions action.
 func (cli *CLI) CallChannelsSuggestions() int {
 	return cli.PrintJSON(cli.api.ChannelsSuggestions())
