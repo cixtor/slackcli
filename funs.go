@@ -63,11 +63,6 @@ func (cli *CLI) CallBotsInfo() int {
 	return cli.PrintJSON(cli.api.BotsInfo(flag.Arg(1)))
 }
 
-// CallChannelsSuggestions sends a http request with the channels.suggestions action.
-func (cli *CLI) CallChannelsSuggestions() int {
-	return cli.PrintJSON(cli.api.ChannelsSuggestions())
-}
-
 // CallChatDelete sends a http request with the chat.delete action.
 func (cli *CLI) CallChatDelete() int {
 	return cli.PrintJSON(cli.api.ChatDelete(slackapi.MessageArgs{
