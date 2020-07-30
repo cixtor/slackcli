@@ -63,11 +63,6 @@ func (cli *CLI) CallBotsInfo() int {
 	return cli.PrintJSON(cli.api.BotsInfo(flag.Arg(1)))
 }
 
-// CallChannelsJoin sends a http request with the channels.join action.
-func (cli *CLI) CallChannelsJoin() int {
-	return cli.PrintJSON(cli.api.ChannelsJoin(flag.Arg(1)))
-}
-
 // CallChannelsSuggestions sends a http request with the channels.suggestions action.
 func (cli *CLI) CallChannelsSuggestions() int {
 	return cli.PrintJSON(cli.api.ChannelsSuggestions())
