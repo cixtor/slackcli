@@ -304,11 +304,6 @@ func (cli *CLI) CallGroupsCreateChild() int {
 	return cli.PrintJSON(cli.api.GroupsCreateChild(flag.Arg(1)))
 }
 
-// CallGroupsOpen sends a http request with the groups.open action.
-func (cli *CLI) CallGroupsOpen() int {
-	return cli.PrintJSON(cli.api.GroupsOpen(flag.Arg(1)))
-}
-
 // CallHelpIssuesList sends a http request with the help.issues.list action.
 func (cli *CLI) CallHelpIssuesList() int {
 	return cli.PrintJSON(cli.api.HelpIssuesList())
