@@ -299,11 +299,6 @@ func (cli *CLI) CallFilesUpload() int {
 	return cli.PrintJSON(cli.api.FilesUpload(data))
 }
 
-// CallGroupsClose sends a http request with the groups.close action.
-func (cli *CLI) CallGroupsClose() int {
-	return cli.PrintJSON(cli.api.GroupsClose(flag.Arg(1)))
-}
-
 // CallGroupsCreateChild sends a http request with the groups.createChild action.
 func (cli *CLI) CallGroupsCreateChild() int {
 	return cli.PrintJSON(cli.api.GroupsCreateChild(flag.Arg(1)))
