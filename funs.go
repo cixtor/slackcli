@@ -299,11 +299,6 @@ func (cli *CLI) CallFilesUpload() int {
 	return cli.PrintJSON(cli.api.FilesUpload(data))
 }
 
-// CallGroupsCreateChild sends a http request with the groups.createChild action.
-func (cli *CLI) CallGroupsCreateChild() int {
-	return cli.PrintJSON(cli.api.GroupsCreateChild(flag.Arg(1)))
-}
-
 // CallHelpIssuesList sends a http request with the help.issues.list action.
 func (cli *CLI) CallHelpIssuesList() int {
 	return cli.PrintJSON(cli.api.HelpIssuesList())
