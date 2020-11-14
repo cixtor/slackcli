@@ -54,16 +54,7 @@ func (cli *CLI) Register(fun Function, name string, params []string, help string
 }
 
 // Execute calls a method to send a HTTP request to the web API service.
-func (cli *CLI) Execute() int {
-	flag.Parse()
-
-	query := flag.Arg(0)
-
-	/* default action */
-	if query == "" {
-		query = "help"
-	}
-
+func (cli *CLI) Execute(query string) int {
 	for _, command := range cli.commands {
 		if command.Name == query {
 			return command.Function()
