@@ -26,6 +26,7 @@ func main() {
 	cli.Register(cli.CallChatRobotMessage, "chat.robotMessage", []string{"channel", "text"}, "Sends a message to a channel as a robot")
 	cli.Register(cli.CallChatUpdate, "chat.update", []string{"channel", "time", "text"}, "Updates a message")
 	cli.Register(cli.CallConversationsArchive, "conversations.archive", []string{"room"}, "Archives a conversation")
+	cli.Register(cli.CallConversationsUnarchive, "conversations.unarchive", []string{"room"}, "Reverses conversation archival")
 	cli.Register(cli.CallDndEndDnd, "dnd.endDnd", []string{}, "Ends the current user's \"Do Not Disturb\" session immediately")
 	cli.Register(cli.CallDndEndSnooze, "dnd.endSnooze", []string{}, "Ends the current user's snooze mode immediately")
 	cli.Register(cli.CallDndInfo, "dnd.info", []string{"user"}, "Retrieves a user's current \"Do Not Disturb\" status")

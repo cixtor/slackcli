@@ -129,6 +129,11 @@ func (cli *CLI) CallConversationsArchive() int {
 	return cli.PrintJSON(cli.api.ConversationsArchive(flag.Arg(1)))
 }
 
+// CallConversationsUnarchive sends a http request with the conversations.unarchive action.
+func (cli *CLI) CallConversationsUnarchive() int {
+	return cli.PrintJSON(cli.api.ConversationsUnarchive(flag.Arg(1)))
+}
+
 // CallDndEndDnd sends a http request with the dnd.endDnd action.
 func (cli *CLI) CallDndEndDnd() int {
 	return cli.PrintJSON(cli.api.DNDEndDnd())
