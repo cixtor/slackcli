@@ -129,6 +129,11 @@ func (cli *CLI) CallConversationsArchive() int {
 	return cli.PrintJSON(cli.api.ConversationsArchive(flag.Arg(1)))
 }
 
+// CallConversationsSetPurpose sends a http request with the conversations.setPurpose action.
+func (cli *CLI) CallConversationsSetPurpose() int {
+	return cli.PrintJSON(cli.api.ConversationsSetPurpose(flag.Arg(1), flag.Arg(2)))
+}
+
 // CallConversationsSetTopic sends a http request with the conversations.setTopic action.
 func (cli *CLI) CallConversationsSetTopic() int {
 	return cli.PrintJSON(cli.api.ConversationsSetTopic(flag.Arg(1), flag.Arg(2)))
