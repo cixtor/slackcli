@@ -129,6 +129,11 @@ func (cli *CLI) CallConversationsArchive() int {
 	return cli.PrintJSON(cli.api.ConversationsArchive(flag.Arg(1)))
 }
 
+// CallConversationsRename sends a http request with the conversations.rename action.
+func (cli *CLI) CallConversationsRename() int {
+	return cli.PrintJSON(cli.api.ConversationsRename(flag.Arg(1), flag.Arg(2)))
+}
+
 // CallConversationsSetPurpose sends a http request with the conversations.setPurpose action.
 func (cli *CLI) CallConversationsSetPurpose() int {
 	return cli.PrintJSON(cli.api.ConversationsSetPurpose(flag.Arg(1), flag.Arg(2)))
