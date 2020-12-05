@@ -129,6 +129,14 @@ func (cli *CLI) CallConversationsArchive() int {
 	return cli.PrintJSON(cli.api.ConversationsArchive(flag.Arg(1)))
 }
 
+// CallConversationsMark sends a http request with the conversations.mark action.
+func (cli *CLI) CallConversationsMark() int {
+	return cli.PrintJSON(cli.api.ConversationsMark(slackapi.ConversationsMarkInput{
+		Channel:   flag.Arg(1),
+		Timestamp: flag.Arg(2),
+	}))
+}
+
 // CallConversationsRename sends a http request with the conversations.rename action.
 func (cli *CLI) CallConversationsRename() int {
 	return cli.PrintJSON(cli.api.ConversationsRename(flag.Arg(1), flag.Arg(2)))
