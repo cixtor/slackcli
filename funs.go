@@ -129,6 +129,11 @@ func (cli *CLI) CallConversationsArchive() int {
 	return cli.PrintJSON(cli.api.ConversationsArchive(flag.Arg(1)))
 }
 
+// CallConversationsList sends a http request with the conversations.list action.
+func (cli *CLI) CallConversationsList() int {
+	return cli.PrintJSON(cli.api.ConversationsList(slackapi.ConversationsListInput{}))
+}
+
 // CallConversationsMark sends a http request with the conversations.mark action.
 func (cli *CLI) CallConversationsMark() int {
 	return cli.PrintJSON(cli.api.ConversationsMark(slackapi.ConversationsMarkInput{
