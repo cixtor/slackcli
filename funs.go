@@ -129,6 +129,11 @@ func (cli *CLI) CallConversationsArchive() int {
 	return cli.PrintJSON(cli.api.ConversationsArchive(flag.Arg(1)))
 }
 
+// CallConversationsLeave sends a http request with the conversations.leave action.
+func (cli *CLI) CallConversationsLeave() int {
+	return cli.PrintJSON(cli.api.ConversationsLeave(flag.Arg(1)))
+}
+
 // CallConversationsList sends a http request with the conversations.list action.
 func (cli *CLI) CallConversationsList() int {
 	return cli.PrintJSON(cli.api.ConversationsList(slackapi.ConversationsListInput{}))
