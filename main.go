@@ -26,6 +26,7 @@ func main() {
 	cli.Register(cli.CallChatRobotMessage, "chat.robotMessage", []string{"channel", "text"}, "Sends a message to a channel as a robot")
 	cli.Register(cli.CallChatUpdate, "chat.update", []string{"channel", "time", "text"}, "Updates a message")
 	cli.Register(cli.CallConversationsArchive, "conversations.archive", []string{"room"}, "Archives a conversation")
+	cli.Register(cli.CallConversationsKick, "conversations.kick", []string{"room", "user"}, "Removes a user from a conversation")
 	cli.Register(cli.CallConversationsLeave, "conversations.leave", []string{"room"}, "Leaves a conversation")
 	cli.Register(cli.CallConversationsList, "conversations.list", []string{}, "Lists all channels in a Slack team")
 	cli.Register(cli.CallConversationsMark, "conversations.mark", []string{"room", "time"}, "Sets the read cursor in a channel")
