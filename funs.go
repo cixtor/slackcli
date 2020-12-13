@@ -129,6 +129,11 @@ func (cli *CLI) CallConversationsArchive() int {
 	return cli.PrintJSON(cli.api.ConversationsArchive(flag.Arg(1)))
 }
 
+// CallConversationsInvite sends a http request with the conversations.invite action.
+func (cli *CLI) CallConversationsInvite() int {
+	return cli.PrintJSON(cli.api.ConversationsInvite(flag.Arg(1), flag.Arg(2)))
+}
+
 // CallConversationsJoin sends a http request with the conversations.join action.
 func (cli *CLI) CallConversationsJoin() int {
 	return cli.PrintJSON(cli.api.ConversationsJoin(flag.Arg(1)))
