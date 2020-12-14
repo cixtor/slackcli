@@ -26,6 +26,7 @@ func main() {
 	cli.Register(cli.CallChatRobotMessage, "chat.robotMessage", []string{"channel", "text"}, "Sends a message to a channel as a robot")
 	cli.Register(cli.CallChatUpdate, "chat.update", []string{"channel", "time", "text"}, "Updates a message")
 	cli.Register(cli.CallConversationsArchive, "conversations.archive", []string{"room"}, "Archives a conversation")
+	cli.Register(cli.CallConversationsInfo, "conversations.info", []string{"room"}, "Retrieve information about a conversation")
 	cli.Register(cli.CallConversationsInvite, "conversations.invite", []string{"room", "user"}, "Invites users to a channel")
 	cli.Register(cli.CallConversationsJoin, "conversations.join", []string{"room"}, "Joins an existing conversation")
 	cli.Register(cli.CallConversationsKick, "conversations.kick", []string{"room", "user"}, "Removes a user from a conversation")
