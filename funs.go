@@ -129,6 +129,16 @@ func (cli *CLI) CallConversationsArchive() int {
 	return cli.PrintJSON(cli.api.ConversationsArchive(flag.Arg(1)))
 }
 
+// CallConversationsHistory sends a http request with the conversations.history action.
+func (cli *CLI) CallConversationsHistory() int {
+	return cli.PrintJSON(cli.api.ConversationsHistory(
+		slackapi.ConversationsHistoryInput{
+			Channel: flag.Arg(1),
+			Latest:  flag.Arg(2),
+		},
+	))
+}
+
 // CallConversationsInfo sends a http request with the conversations.info action.
 func (cli *CLI) CallConversationsInfo() int {
 	return cli.PrintJSON(cli.api.ConversationsInfo(flag.Arg(1)))
