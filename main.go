@@ -16,7 +16,7 @@ func main() {
 
 	cli.Register(cli.CallAPITest, "api.test", []string{"error"}, "Checks API calling code")
 	cli.Register(cli.CallAppsList, "apps.list", []string{}, "Lists associated applications")
-	cli.Register(cli.CallAuthRevoke, "auth.revoke", []string{}, "Revokes a token")
+	cli.Register(cli.CallAuthRevoke, "auth.revoke", []string{"test"}, "Revokes a token")
 	cli.Register(cli.CallAuthTest, "auth.test", []string{}, "Checks authentication and identity")
 	cli.Register(cli.CallBotsInfo, "bots.info", []string{"bot"}, "Gets information about a bot user")
 	cli.Register(cli.CallChatDelete, "chat.delete", []string{"channel", "time"}, "Deletes a message")
