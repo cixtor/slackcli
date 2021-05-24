@@ -18,7 +18,7 @@ func (cli *CLI) CallHelp() int {
 
 // CallAPITest sends a http request with the api.test action.
 func (cli *CLI) CallAPITest() int {
-	return cli.PrintJSON(cli.api.APITest())
+	return cli.PrintJSON(cli.api.APITest(flag.Arg(1)))
 }
 
 // CallAppsList sends a http request with the apps.list action.

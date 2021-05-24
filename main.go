@@ -14,7 +14,7 @@ func main() {
 
 	cli.AutoAuthenticate()
 
-	cli.Register(cli.CallAPITest, "api.test", []string{}, "Checks API calling code")
+	cli.Register(cli.CallAPITest, "api.test", []string{"error"}, "Checks API calling code")
 	cli.Register(cli.CallAppsList, "apps.list", []string{}, "Lists associated applications")
 	cli.Register(cli.CallAuthRevoke, "auth.revoke", []string{}, "Revokes a token")
 	cli.Register(cli.CallAuthTest, "auth.test", []string{}, "Checks authentication and identity")
