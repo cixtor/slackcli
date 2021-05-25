@@ -374,45 +374,6 @@ func (cli *CLI) CallHelpIssuesList() int {
 	return cli.PrintJSON(cli.api.HelpIssuesList())
 }
 
-// CallImClose sends a http request with the im.close action.
-func (cli *CLI) CallImClose() int {
-	return cli.PrintJSON(cli.api.InstantMessageClose(flag.Arg(1)))
-}
-
-// CallImHistory sends a http request with the im.history action.
-func (cli *CLI) CallImHistory() int {
-	return cli.PrintJSON(cli.api.InstantMessageHistory(slackapi.HistoryArgs{
-		Channel: flag.Arg(1),
-		Latest:  flag.Arg(2),
-	}))
-}
-
-// CallImList sends a http request with the im.list action.
-func (cli *CLI) CallImList() int {
-	return cli.PrintJSON(cli.api.InstantMessageList())
-}
-
-// CallImMark sends a http request with the im.mark action.
-func (cli *CLI) CallImMark() int {
-	return cli.PrintJSON(cli.api.InstantMessageMark(flag.Arg(1), flag.Arg(2)))
-}
-
-// CallImMyHistory sends a http request with the im.myHistory action.
-func (cli *CLI) CallImMyHistory() int {
-	return cli.PrintJSON(cli.api.InstantMessageMyHistory(flag.Arg(1), flag.Arg(2)))
-}
-
-// CallImOpen sends a http request with the im.open action.
-func (cli *CLI) CallImOpen() int {
-	return cli.PrintJSON(cli.api.InstantMessageOpen(flag.Arg(1)))
-}
-
-// CallImPurgeHistory sends a http request with the im.purgeHistory action.
-func (cli *CLI) CallImPurgeHistory() int {
-	cli.api.InstantMessagePurgeHistory(flag.Arg(1), flag.Arg(2), true)
-	return 0
-}
-
 // CallMigrationExchange sends a http request with the migration.exchange action.
 func (cli *CLI) CallMigrationExchange() int {
 	users := strings.Split(flag.Arg(1), ",")
