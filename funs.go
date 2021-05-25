@@ -381,50 +381,6 @@ func (cli *CLI) CallMigrationExchange() int {
 	return cli.PrintJSON(cli.api.MigrationExchange(users, order))
 }
 
-// CallMpimClose sends a http request with the mpim.close action.
-func (cli *CLI) CallMpimClose() int {
-	return cli.PrintJSON(cli.api.MultiPartyInstantMessageClose(flag.Arg(1)))
-}
-
-// CallMpimHistory sends a http request with the mpim.history action.
-func (cli *CLI) CallMpimHistory() int {
-	return cli.PrintJSON(cli.api.MultiPartyInstantMessageHistory(slackapi.HistoryArgs{
-		Channel: flag.Arg(1),
-		Latest:  flag.Arg(2),
-	}))
-}
-
-// CallMpimList sends a http request with the mpim.list action.
-func (cli *CLI) CallMpimList() int {
-	return cli.PrintJSON(cli.api.MultiPartyInstantMessageList())
-}
-
-// CallMpimListSimple sends a http request with the mpim.listSimple action.
-func (cli *CLI) CallMpimListSimple() int {
-	return cli.PrintJSON(cli.api.MultiPartyInstantMessageListSimple())
-}
-
-// CallMpimMark sends a http request with the mpim.mark action.
-func (cli *CLI) CallMpimMark() int {
-	return cli.PrintJSON(cli.api.MultiPartyInstantMessageMark(flag.Arg(1), flag.Arg(2)))
-}
-
-// CallMpimMyHistory sends a http request with the mpim.myHistory action.
-func (cli *CLI) CallMpimMyHistory() int {
-	return cli.PrintJSON(cli.api.MultiPartyInstantMessageMyHistory(flag.Arg(1), flag.Arg(2)))
-}
-
-// CallMpimOpen sends a http request with the mpim.open action.
-func (cli *CLI) CallMpimOpen() int {
-	return cli.PrintJSON(cli.api.MultiPartyInstantMessageOpen(strings.Split(flag.Arg(1), ",")))
-}
-
-// CallMpimPurgeHistory sends a http request with the mpim.purgeHistory action.
-func (cli *CLI) CallMpimPurgeHistory() int {
-	cli.api.MultiPartyInstantMessagePurgeHistory(flag.Arg(1), flag.Arg(2), true)
-	return 0
-}
-
 // CallPinsAdd sends a http request with the pins.add action.
 func (cli *CLI) CallPinsAdd() int {
 	return cli.PrintJSON(cli.api.PinsAdd(flag.Arg(1), flag.Arg(2)))
