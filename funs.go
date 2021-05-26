@@ -560,7 +560,7 @@ func (cli *CLI) CallTeamBillableInfo() int {
 
 // CallTeamInfo sends a http request with the team.info action.
 func (cli *CLI) CallTeamInfo() int {
-	return cli.PrintJSON(cli.api.TeamInfo())
+	return cli.PrintJSON(cli.api.TeamInfo(flag.Arg(1)))
 }
 
 // CallTeamProfileGet sends a http request with the team.profile.get action.
