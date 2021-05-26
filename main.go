@@ -81,7 +81,7 @@ func main() {
 	cli.Register(cli.CallStarsList, "stars.list", []string{"count", "page"}, "Lists stars for a user")
 	cli.Register(cli.CallStarsRemove, "stars.remove", []string{"channel", "item_id"}, "Removes a star from an item")
 	cli.Register(cli.CallTeamAccessLogs, "team.accessLogs", []string{"count", "page"}, "Gets the access logs for the current team")
-	cli.Register(cli.CallTeamBillableInfo, "team.billableInfo", []string{"user"}, "Gets billable users information for the current team")
+	cli.Register(cli.CallTeamBillableInfo, "team.billableInfo", []string{"team_id", "user"}, "Gets billable users information for the current team")
 	cli.Register(cli.CallTeamInfo, "team.info", []string{"team"}, "Gets information about the current team")
 	cli.Register(cli.CallTeamProfileGet, "team.profile.get", []string{}, "Retrieve a team's profile")
 	cli.Register(cli.CallUsersCounts, "users.counts", []string{}, "Count number of users in the team")

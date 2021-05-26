@@ -555,7 +555,7 @@ func (cli *CLI) CallTeamAccessLogs() int {
 
 // CallTeamBillableInfo sends a http request with the team.billableInfo action.
 func (cli *CLI) CallTeamBillableInfo() int {
-	return cli.PrintJSON(cli.api.TeamBillableInfo(flag.Arg(1)))
+	return cli.PrintJSON(cli.api.TeamBillableInfo(flag.Arg(1), flag.Arg(2)))
 }
 
 // CallTeamInfo sends a http request with the team.info action.
