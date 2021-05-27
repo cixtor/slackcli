@@ -547,9 +547,10 @@ func (cli *CLI) CallStarsRemove() int {
 
 // CallTeamAccessLogs sends a http request with the team.accessLogs action.
 func (cli *CLI) CallTeamAccessLogs() int {
-	return cli.PrintJSON(cli.api.TeamAccessLogs(slackapi.AccessLogArgs{
-		Count: cli.Number(2, 1000),
-		Page:  cli.Number(3, 1),
+	return cli.PrintJSON(cli.api.TeamAccessLogs(slackapi.TeamAccessLogsInput{
+		Before: flag.Arg(1),
+		Count:  cli.Number(2, 1000),
+		Page:   cli.Number(3, 1),
 	}))
 }
 
