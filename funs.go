@@ -21,6 +21,11 @@ func (cli *CLI) CallAPITest() int {
 	return cli.PrintJSON(cli.api.APITest(flag.Arg(1)))
 }
 
+// CallAppsConnectionsOpen sends a http request with the apps.connections.open action.
+func (cli *CLI) CallAppsConnectionsOpen() int {
+	return cli.PrintJSON(cli.api.AppsConnectionsOpen())
+}
+
 // CallAppsList sends a http request with the apps.list action.
 func (cli *CLI) CallAppsList() int {
 	return cli.PrintJSON(cli.api.AppsList())

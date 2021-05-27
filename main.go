@@ -15,6 +15,7 @@ func main() {
 	cli.AutoAuthenticate()
 
 	cli.Register(cli.CallAPITest, "api.test", []string{"error"}, "Checks API calling code")
+	cli.Register(cli.CallAppsConnectionsOpen, "apps.connections.open", []string{}, "Generate a temporary Socket Mode WebSocket URL that your app can connect to in order to receive events and interactive payloads over")
 	cli.Register(cli.CallAppsList, "apps.list", []string{}, "Lists associated applications")
 	cli.Register(cli.CallAuthRevoke, "auth.revoke", []string{"test"}, "Revokes a token")
 	cli.Register(cli.CallAuthTest, "auth.test", []string{}, "Checks authentication and identity")
