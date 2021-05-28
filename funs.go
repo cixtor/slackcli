@@ -26,6 +26,15 @@ func (cli *CLI) CallAppsConnectionsOpen() int {
 	return cli.PrintJSON(cli.api.AppsConnectionsOpen())
 }
 
+// CallAppsEventAuthorizationsList sends a http request with the apps.event.authorizations.list action.
+func (cli *CLI) CallAppsEventAuthorizationsList() int {
+	return cli.PrintJSON(cli.api.AppsEventAuthorizationsList(slackapi.AppsEventAuthorizationsListInput{
+		EventContext: flag.Arg(1),
+		Cursor:       flag.Arg(2),
+		Limit:        cli.Number(3, 1000),
+	}))
+}
+
 // CallAppsList sends a http request with the apps.list action.
 func (cli *CLI) CallAppsList() int {
 	return cli.PrintJSON(cli.api.AppsList())
