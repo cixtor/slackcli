@@ -40,6 +40,11 @@ func (cli *CLI) CallAppsList() int {
 	return cli.PrintJSON(cli.api.AppsList())
 }
 
+// CallAppsManifestCreate sends a http request with the apps.manifest.create action.
+func (cli *CLI) CallAppsManifestCreate() int {
+	return cli.PrintJSON(cli.api.AppsManifestCreate(flag.Arg(1)))
+}
+
 // CallAuthRevoke sends a http request with the auth.revoke action.
 func (cli *CLI) CallAuthRevoke() int {
 	if flag.Arg(1) == "test" {
