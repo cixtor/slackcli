@@ -19,6 +19,7 @@ func main() {
 	cli.Register(cli.CallAppsEventAuthorizationsList, "apps.event.authorizations.list", []string{"event_context", "cursor", "limit"}, "Get a list of authorizations for the given event context. Each authorization represents an app installation that the event is visible to")
 	cli.Register(cli.CallAppsList, "apps.list", []string{}, "Lists associated applications")
 	cli.Register(cli.CallAppsManifestCreate, "apps.manifest.create", []string{"manifest"}, "Create an app from an app manifest")
+	cli.Register(cli.CallAppsManifestDelete, "apps.manifest.delete", []string{"app_id"}, "Permanently deletes an app created through app manifests")
 	cli.Register(cli.CallAuthRevoke, "auth.revoke", []string{"test"}, "Revokes a token")
 	cli.Register(cli.CallAuthTest, "auth.test", []string{}, "Checks authentication and identity")
 	cli.Register(cli.CallBotsInfo, "bots.info", []string{"bot"}, "Gets information about a bot user")

@@ -45,6 +45,11 @@ func (cli *CLI) CallAppsManifestCreate() int {
 	return cli.PrintJSON(cli.api.AppsManifestCreate(flag.Arg(1)))
 }
 
+// CallAppsManifestDelete sends a http request with the apps.manifest.delete action.
+func (cli *CLI) CallAppsManifestDelete() int {
+	return cli.PrintJSON(cli.api.AppsManifestDelete(flag.Arg(1)))
+}
+
 // CallAuthRevoke sends a http request with the auth.revoke action.
 func (cli *CLI) CallAuthRevoke() int {
 	if flag.Arg(1) == "test" {
