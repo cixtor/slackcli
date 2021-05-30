@@ -60,6 +60,11 @@ func (cli *CLI) CallAppsManifestUpdate() int {
 	return cli.PrintJSON(cli.api.AppsManifestUpdate(flag.Arg(1), flag.Arg(2)))
 }
 
+// CallAppsManifestValidate sends a http request with the apps.manifest.validate action.
+func (cli *CLI) CallAppsManifestValidate() int {
+	return cli.PrintJSON(cli.api.AppsManifestValidate(flag.Arg(1), flag.Arg(2)))
+}
+
 // CallAuthRevoke sends a http request with the auth.revoke action.
 func (cli *CLI) CallAuthRevoke() int {
 	if flag.Arg(1) == "test" {

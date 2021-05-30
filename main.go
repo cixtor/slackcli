@@ -22,6 +22,7 @@ func main() {
 	cli.Register(cli.CallAppsManifestDelete, "apps.manifest.delete", []string{"app_id"}, "Permanently deletes an app created through app manifests")
 	cli.Register(cli.CallAppsManifestExport, "apps.manifest.export", []string{"app_id"}, "Export an app manifest from an existing app")
 	cli.Register(cli.CallAppsManifestUpdate, "apps.manifest.update", []string{"app_id", "manifest"}, "Update an app from an app manifest")
+	cli.Register(cli.CallAppsManifestValidate, "apps.manifest.validate", []string{"manifest", "app_id"}, "Validate an app manifest")
 	cli.Register(cli.CallAuthRevoke, "auth.revoke", []string{"test"}, "Revokes a token")
 	cli.Register(cli.CallAuthTest, "auth.test", []string{}, "Checks authentication and identity")
 	cli.Register(cli.CallBotsInfo, "bots.info", []string{"bot"}, "Gets information about a bot user")
