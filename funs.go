@@ -31,7 +31,7 @@ func (cli *CLI) CallAppsEventAuthorizationsList() int {
 	return cli.PrintJSON(cli.api.AppsEventAuthorizationsList(slackapi.AppsEventAuthorizationsListInput{
 		EventContext: flag.Arg(1),
 		Cursor:       flag.Arg(2),
-		Limit:        cli.Number(3, 1000),
+		Limit:        cli.Number(3, 100),
 	}))
 }
 
@@ -72,6 +72,15 @@ func (cli *CLI) CallAuthRevoke() int {
 	} else {
 		return cli.PrintJSON(cli.api.AuthRevoke(false))
 	}
+}
+
+// CallAuthTeamsList sends a http request with the auth.teams.list action.
+func (cli *CLI) CallAuthTeamsList() int {
+	return cli.PrintJSON(cli.api.AuthTeamsList(slackapi.AuthTeamsListInput{
+		Cursor:      flag.Arg(1),
+		IncludeIcon: flag.Arg(2) == "true",
+		Limit:       cli.Number(3, 100),
+	}))
 }
 
 // CallAuthTest sends a http request with the auth.test action.
