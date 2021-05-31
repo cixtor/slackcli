@@ -176,6 +176,18 @@ func (cli *CLI) CallChatUpdate() int {
 	}))
 }
 
+// CallConversationsAcceptSharedInvite sends a http request with the conversations.acceptSharedInvite action.
+func (cli *CLI) CallConversationsAcceptSharedInvite() int {
+	return cli.PrintJSON(cli.api.ConversationsAcceptSharedInvite(slackapi.ConversationsAcceptSharedInviteInput{
+		ChannelName:       flag.Arg(1),
+		ChannelID:         flag.Arg(2),
+		FreeTrialAccepted: flag.Arg(3) == "true",
+		InviteID:          flag.Arg(4),
+		IsPrivate:         flag.Arg(5) == "true",
+		TeamID:            flag.Arg(6),
+	}))
+}
+
 // CallConversationsArchive sends a http request with the conversations.archive action.
 func (cli *CLI) CallConversationsArchive() int {
 	return cli.PrintJSON(cli.api.ConversationsArchive(flag.Arg(1)))
