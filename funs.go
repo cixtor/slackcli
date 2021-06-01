@@ -188,6 +188,11 @@ func (cli *CLI) CallConversationsAcceptSharedInvite() int {
 	}))
 }
 
+// CallConversationsApproveSharedInvite sends a http request with the conversations.acceptSharedInvite action.
+func (cli *CLI) CallConversationsApproveSharedInvite() int {
+	return cli.PrintJSON(cli.api.ConversationsApproveSharedInvite(flag.Arg(1), flag.Arg(2)))
+}
+
 // CallConversationsArchive sends a http request with the conversations.archive action.
 func (cli *CLI) CallConversationsArchive() int {
 	return cli.PrintJSON(cli.api.ConversationsArchive(flag.Arg(1)))

@@ -34,6 +34,7 @@ func main() {
 	cli.Register(cli.CallChatRobotMessage, "chat.robotMessage", []string{"channel", "text"}, "Sends a message to a channel as a robot")
 	cli.Register(cli.CallChatUpdate, "chat.update", []string{"channel", "time", "text"}, "Updates a message")
 	cli.Register(cli.CallConversationsAcceptSharedInvite, "conversations.acceptSharedInvite", []string{"channel_name", "channel_id", "free_trial_accepted", "invite_id", "is_private", "team_id"}, "Accepts an invitation to a Slack Connect channel")
+	cli.Register(cli.CallConversationsApproveSharedInvite, "conversations.approveSharedInvite", []string{"invite_id", "target_team"}, "Approves an invitation to a Slack Connect channel")
 	cli.Register(cli.CallConversationsArchive, "conversations.archive", []string{"room"}, "Archives a conversation")
 	cli.Register(cli.CallConversationsClose, "conversations.close", []string{"room"}, "Closes a direct message or multi-person direct message")
 	cli.Register(cli.CallConversationsCreate, "conversations.create", []string{"room"}, "Initiates a public or private channel-based conversation")
