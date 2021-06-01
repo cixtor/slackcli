@@ -208,6 +208,14 @@ func (cli *CLI) CallConversationsCreate() int {
 	return cli.PrintJSON(cli.api.ConversationsCreate(flag.Arg(1)))
 }
 
+// CallConversationsDeclineSharedInvite sends a http request with the conversations.declineSharedInvite action.
+func (cli *CLI) CallConversationsDeclineSharedInvite() int {
+	return cli.PrintJSON(cli.api.ConversationsDeclineSharedInvite(slackapi.ConversationsDeclineSharedInviteInput{
+		InviteID:   flag.Arg(1),
+		TargetTeam: flag.Arg(2),
+	}))
+}
+
 // CallConversationsHistory sends a http request with the conversations.history action.
 func (cli *CLI) CallConversationsHistory() int {
 	return cli.PrintJSON(cli.api.ConversationsHistory(
