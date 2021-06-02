@@ -216,6 +216,11 @@ func (cli *CLI) CallConversationsDeclineSharedInvite() int {
 	}))
 }
 
+// CallConversationsGenericInfo sends a http request with the conversations.genericInfo action.
+func (cli *CLI) CallConversationsGenericInfo() int {
+	return cli.PrintJSON(cli.api.ConversationsGenericInfo(flag.Arg(1)))
+}
+
 // CallConversationsHistory sends a http request with the conversations.history action.
 func (cli *CLI) CallConversationsHistory() int {
 	return cli.PrintJSON(cli.api.ConversationsHistory(
