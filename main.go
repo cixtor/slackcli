@@ -43,6 +43,7 @@ func main() {
 	cli.Register(cli.CallConversationsHistory, "conversations.history", []string{"room", "time"}, "Fetches a conversation's history of messages and events")
 	cli.Register(cli.CallConversationsInfo, "conversations.info", []string{"room"}, "Retrieve information about a conversation")
 	cli.Register(cli.CallConversationsInvite, "conversations.invite", []string{"room", "user"}, "Invites users to a channel")
+	cli.Register(cli.CallConversationsInviteShared, "conversations.inviteShared", []string{"channel", "emails", "external_limited", "user_ids"}, "Sends an invitation to a Slack Connect channel")
 	cli.Register(cli.CallConversationsJoin, "conversations.join", []string{"room"}, "Joins an existing conversation")
 	cli.Register(cli.CallConversationsKick, "conversations.kick", []string{"room", "user"}, "Removes a user from a conversation")
 	cli.Register(cli.CallConversationsLeave, "conversations.leave", []string{"room"}, "Leaves a conversation")

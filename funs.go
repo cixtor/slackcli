@@ -241,6 +241,16 @@ func (cli *CLI) CallConversationsInvite() int {
 	return cli.PrintJSON(cli.api.ConversationsInvite(flag.Arg(1), flag.Arg(2)))
 }
 
+// CallConversationsInviteShared sends a http request with the conversations.inviteShared action.
+func (cli *CLI) CallConversationsInviteShared() int {
+	return cli.PrintJSON(cli.api.ConversationsInviteShared(slackapi.ConversationsInviteSharedInput{
+		Channel:         flag.Arg(1),
+		Emails:          strings.Split(flag.Arg(2), ","),
+		ExternalLimited: flag.Arg(3) == "true",
+		UserIDs:         strings.Split(flag.Arg(4), ","),
+	}))
+}
+
 // CallConversationsJoin sends a http request with the conversations.join action.
 func (cli *CLI) CallConversationsJoin() int {
 	return cli.PrintJSON(cli.api.ConversationsJoin(flag.Arg(1)))
