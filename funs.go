@@ -288,6 +288,15 @@ func (cli *CLI) CallConversationsMark() int {
 	}))
 }
 
+// CallConversationsMembers sends a http request with the conversations.members action.
+func (cli *CLI) CallConversationsMembers() int {
+	return cli.PrintJSON(cli.api.ConversationsMembers(slackapi.ConversationsMembersInput{
+		Channel: flag.Arg(1),
+		Cursor:  flag.Arg(2),
+		Limit:   cli.Number(3, 100),
+	}))
+}
+
 // CallConversationsRename sends a http request with the conversations.rename action.
 func (cli *CLI) CallConversationsRename() int {
 	return cli.PrintJSON(cli.api.ConversationsRename(flag.Arg(1), flag.Arg(2)))

@@ -50,6 +50,7 @@ func main() {
 	cli.Register(cli.CallConversationsList, "conversations.list", []string{}, "Lists all channels in a Slack team")
 	cli.Register(cli.CallConversationsListConnectInvites, "conversations.listConnectInvites", []string{"count", "cursor", "team_id"}, "Lists shared channel invites that have been generated or received but have not been approved by all parties")
 	cli.Register(cli.CallConversationsMark, "conversations.mark", []string{"room", "time"}, "Sets the read cursor in a channel")
+	cli.Register(cli.CallConversationsMembers, "conversations.members", []string{"channel", "cursor", "limit"}, "Retrieve members of a conversation")
 	cli.Register(cli.CallConversationsRename, "conversations.rename", []string{"room", "name"}, "Renames a conversation")
 	cli.Register(cli.CallConversationsSetPurpose, "conversations.setPurpose", []string{"room", "purpose"}, "Sets the purpose for a conversation")
 	cli.Register(cli.CallConversationsSetTopic, "conversations.setTopic", []string{"room", "topic"}, "Sets the topic for a conversation")
