@@ -271,6 +271,15 @@ func (cli *CLI) CallConversationsList() int {
 	return cli.PrintJSON(cli.api.ConversationsList(slackapi.ConversationsListInput{}))
 }
 
+// CallConversationsListConnectInvites sends a http request with the conversations.listConnectInvites action.
+func (cli *CLI) CallConversationsListConnectInvites() int {
+	return cli.PrintJSON(cli.api.ConversationsListConnectInvites(slackapi.ConversationsListConnectInvitesInput{
+		Count:  cli.Number(1, 100),
+		Cursor: flag.Arg(2),
+		TeamID: flag.Arg(3),
+	}))
+}
+
 // CallConversationsMark sends a http request with the conversations.mark action.
 func (cli *CLI) CallConversationsMark() int {
 	return cli.PrintJSON(cli.api.ConversationsMark(slackapi.ConversationsMarkInput{
