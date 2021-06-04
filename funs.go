@@ -297,6 +297,16 @@ func (cli *CLI) CallConversationsMembers() int {
 	}))
 }
 
+// CallConversationsOpen sends a http request with the conversations.open action.
+func (cli *CLI) CallConversationsOpen() int {
+	return cli.PrintJSON(cli.api.ConversationsOpen(slackapi.ConversationsOpenInput{
+		Channel:         flag.Arg(1),
+		PreventCreation: flag.Arg(2) == "true",
+		ReturnIm:        flag.Arg(3) == "true",
+		Users:           flag.Arg(4),
+	}))
+}
+
 // CallConversationsRename sends a http request with the conversations.rename action.
 func (cli *CLI) CallConversationsRename() int {
 	return cli.PrintJSON(cli.api.ConversationsRename(flag.Arg(1), flag.Arg(2)))
