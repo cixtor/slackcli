@@ -53,6 +53,7 @@ func main() {
 	cli.Register(cli.CallConversationsMembers, "conversations.members", []string{"channel", "cursor", "limit"}, "Retrieve members of a conversation")
 	cli.Register(cli.CallConversationsOpen, "conversations.open", []string{"channel", "prevent_creation", "return_im", "users"}, "Opens or resumes a direct message or multi-person direct message")
 	cli.Register(cli.CallConversationsRename, "conversations.rename", []string{"room", "name"}, "Renames a conversation")
+	cli.Register(cli.CallConversationsReplies, "conversations.replies", []string{"channel", "ts", "cursor", "inclusive", "latest", "limit", "oldest"}, "Retrieve a thread of messages posted to a conversation")
 	cli.Register(cli.CallConversationsSetPurpose, "conversations.setPurpose", []string{"room", "purpose"}, "Sets the purpose for a conversation")
 	cli.Register(cli.CallConversationsSetTopic, "conversations.setTopic", []string{"room", "topic"}, "Sets the topic for a conversation")
 	cli.Register(cli.CallConversationsUnarchive, "conversations.unarchive", []string{"room"}, "Reverses conversation archival")

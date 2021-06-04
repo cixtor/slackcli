@@ -312,6 +312,19 @@ func (cli *CLI) CallConversationsRename() int {
 	return cli.PrintJSON(cli.api.ConversationsRename(flag.Arg(1), flag.Arg(2)))
 }
 
+// CallConversationsReplies sends a http request with the conversations.replies action.
+func (cli *CLI) CallConversationsReplies() int {
+	return cli.PrintJSON(cli.api.ConversationsReplies(slackapi.ConversationsRepliesInput{
+		Channel:   flag.Arg(1),
+		Timestamp: flag.Arg(2),
+		Cursor:    flag.Arg(3),
+		Inclusive: flag.Arg(4) == "true",
+		Latest:    flag.Arg(5),
+		Limit:     cli.Number(6, 1000),
+		Oldest:    flag.Arg(7),
+	}))
+}
+
 // CallConversationsSetPurpose sends a http request with the conversations.setPurpose action.
 func (cli *CLI) CallConversationsSetPurpose() int {
 	return cli.PrintJSON(cli.api.ConversationsSetPurpose(flag.Arg(1), flag.Arg(2)))
