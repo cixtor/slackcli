@@ -688,6 +688,11 @@ func (cli *CLI) CallTeamBillableInfo() int {
 	return cli.PrintJSON(cli.api.TeamBillableInfo(flag.Arg(1), flag.Arg(2)))
 }
 
+// CallTeamBillingInfo sends a http request with the team.billing.info action.
+func (cli *CLI) CallTeamBillingInfo() int {
+	return cli.PrintJSON(cli.api.TeamBillingInfo())
+}
+
 // CallTeamInfo sends a http request with the team.info action.
 func (cli *CLI) CallTeamInfo() int {
 	return cli.PrintJSON(cli.api.TeamInfo(flag.Arg(1)))
