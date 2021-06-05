@@ -698,6 +698,19 @@ func (cli *CLI) CallTeamInfo() int {
 	return cli.PrintJSON(cli.api.TeamInfo(flag.Arg(1)))
 }
 
+// CallTeamIntegrationLogs sends a http request with the team.integrationLogs action.
+func (cli *CLI) CallTeamIntegrationLogs() int {
+	return cli.PrintJSON(cli.api.TeamIntegrationLogs(slackapi.TeamIntegrationLogsInput{
+		AppID:      flag.Arg(1),
+		ChangeType: flag.Arg(2),
+		Count:      flag.Arg(3),
+		Page:       flag.Arg(4),
+		ServiceID:  flag.Arg(5),
+		TeamID:     flag.Arg(6),
+		User:       flag.Arg(7),
+	}))
+}
+
 // CallTeamProfileGet sends a http request with the team.profile.get action.
 func (cli *CLI) CallTeamProfileGet() int {
 	return cli.PrintJSON(cli.api.TeamProfileGet())
