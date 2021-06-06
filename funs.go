@@ -825,6 +825,13 @@ func (cli *CLI) CallUsersSetUsername() int {
 	return cli.PrintJSON(cli.api.UsersProfileSet("username", flag.Arg(1)))
 }
 
+// CallWorkflowsStepCompleted sends a http request with the workflows.stepCompleted action.
+func (cli *CLI) CallWorkflowsStepCompleted() int {
+	return cli.PrintJSON(cli.api.WorkflowsStepCompleted(slackapi.WorkflowsStepCompletedInput{
+		WorkflowStepExecuteID: flag.Arg(1),
+	}))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
