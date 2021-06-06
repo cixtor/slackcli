@@ -102,6 +102,7 @@ func main() {
 	cli.Register(cli.CallTeamBillingInfo, "team.billing.info", []string{}, "Reads a workspace's billing plan information")
 	cli.Register(cli.CallTeamInfo, "team.info", []string{"team"}, "Gets information about the current team")
 	cli.Register(cli.CallTeamIntegrationLogs, "team.integrationLogs", []string{"app_id", "change_type", "count", "page", "service_id", "team_id", "user"}, "Gets the integration logs for the current team")
+	cli.Register(cli.CallTeamPreferencesList, "team.preferences.list", []string{}, "Retrieve a list of a workspace's team preferences")
 	cli.Register(cli.CallTeamProfileGet, "team.profile.get", []string{}, "Retrieve a team's profile")
 	cli.Register(cli.CallUsersCounts, "users.counts", []string{}, "Count number of users in the team")
 	cli.Register(cli.CallUsersDeletePhoto, "users.deletePhoto", []string{}, "Delete the user avatar")

@@ -711,6 +711,11 @@ func (cli *CLI) CallTeamIntegrationLogs() int {
 	}))
 }
 
+// CallTeamPreferencesList sends a http request with the team.preferences.list action.
+func (cli *CLI) CallTeamPreferencesList() int {
+	return cli.PrintJSON(cli.api.TeamPreferencesList())
+}
+
 // CallTeamProfileGet sends a http request with the team.profile.get action.
 func (cli *CLI) CallTeamProfileGet() int {
 	return cli.PrintJSON(cli.api.TeamProfileGet())
