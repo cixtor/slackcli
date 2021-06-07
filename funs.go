@@ -832,6 +832,14 @@ func (cli *CLI) CallWorkflowsStepCompleted() int {
 	}))
 }
 
+// CallWorkflowsStepFailed sends a http request with the workflows.stepFailed action.
+func (cli *CLI) CallWorkflowsStepFailed() int {
+	return cli.PrintJSON(cli.api.WorkflowsStepFailed(slackapi.WorkflowsStepFailedInput{
+		WorkflowStepExecuteID: flag.Arg(1),
+		Error:                 slackapi.WorkflowError{Message: flag.Arg(2)},
+	}))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)

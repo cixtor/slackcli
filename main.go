@@ -125,6 +125,7 @@ func main() {
 	cli.Register(cli.CallUsersSetStatus, "users.setStatus", []string{"emoji", "text"}, "Set the status message and emoji")
 	cli.Register(cli.CallUsersSetUsername, "users.setUsername", []string{"username"}, "Changes the username without admin privileges")
 	cli.Register(cli.CallWorkflowsStepCompleted, "workflows.stepCompleted", []string{"workflow_step_execute_id"}, "Indicate that an app's step in a workflow completed execution")
+	cli.Register(cli.CallWorkflowsStepFailed, "workflows.stepFailed", []string{"workflow_step_execute_id", "error"}, "Indicate that an app's step in a workflow failed to execute")
 	cli.Register(cli.CallVersion, "version", []string{}, "Displays the program version number")
 	cli.Register(cli.CallHelp, "help", []string{}, "Displays usage and program options")
 
