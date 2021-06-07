@@ -840,6 +840,15 @@ func (cli *CLI) CallWorkflowsStepFailed() int {
 	}))
 }
 
+// CallWorkflowsUpdateStep sends a http request with the workflows.updateStep action.
+func (cli *CLI) CallWorkflowsUpdateStep() int {
+	return cli.PrintJSON(cli.api.WorkflowsUpdateStep(slackapi.WorkflowsUpdateStepInput{
+		WorkflowStepExecuteID: flag.Arg(1),
+		StepImageURL:          flag.Arg(2),
+		StepName:              flag.Arg(3),
+	}))
+}
+
 // CallVersion prints the program version.
 func (cli *CLI) CallVersion() int {
 	fmt.Printf("{\"version\":\"%s\"}\n", version)
