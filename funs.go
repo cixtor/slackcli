@@ -564,7 +564,7 @@ func (cli *CLI) CallReactionsRemove() int {
 
 // CallRtmEvents sends a http request with the rtm.events action.
 func (cli *CLI) CallRtmEvents() int {
-	rtm, err := cli.api.NewRTM(slackapi.RTMArgs{})
+	rtm, err := cli.api.NewRTM(slackapi.RTMInput{})
 
 	if err != nil {
 		fmt.Printf("{\"ok\":false, \"error\":\"rtm.events; %s\"}\n", err.Error())
@@ -589,7 +589,8 @@ func (cli *CLI) CallRtmEvents() int {
 					"message; %s@%s: %#v\n",
 					event.User,
 					event.Channel,
-					event.Text)
+					event.Text,
+				)
 			}
 
 		case *slackapi.ErrorEvent:
