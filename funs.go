@@ -205,7 +205,11 @@ func (cli *CLI) CallConversationsClose() int {
 
 // CallConversationsCreate sends a http request with the conversations.create action.
 func (cli *CLI) CallConversationsCreate() int {
-	return cli.PrintJSON(cli.api.ConversationsCreate(flag.Arg(1)))
+	return cli.PrintJSON(cli.api.ConversationsCreate(slackapi.ConversationsCreateInput{
+		Name:      flag.Arg(1),
+		IsPrivate: flag.Arg(2) == "true",
+		TeamID:    flag.Arg(3),
+	}))
 }
 
 // CallConversationsDeclineSharedInvite sends a http request with the conversations.declineSharedInvite action.

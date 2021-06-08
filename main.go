@@ -37,7 +37,7 @@ func main() {
 	cli.Register(cli.CallConversationsApproveSharedInvite, "conversations.approveSharedInvite", []string{"invite_id", "target_team"}, "Approves an invitation to a Slack Connect channel")
 	cli.Register(cli.CallConversationsArchive, "conversations.archive", []string{"room"}, "Archives a conversation")
 	cli.Register(cli.CallConversationsClose, "conversations.close", []string{"room"}, "Closes a direct message or multi-person direct message")
-	cli.Register(cli.CallConversationsCreate, "conversations.create", []string{"room"}, "Initiates a public or private channel-based conversation")
+	cli.Register(cli.CallConversationsCreate, "conversations.create", []string{"name", "is_private", "team_id"}, "Initiates a public or private channel-based conversation")
 	cli.Register(cli.CallConversationsDeclineSharedInvite, "conversations.declineSharedInvite", []string{"invite_id", "target_team"}, "Declines a Slack Connect channel invite")
 	cli.Register(cli.CallConversationsGenericInfo, "conversations.genericInfo", []string{"channels"}, "Retrieve information about various channels")
 	cli.Register(cli.CallConversationsHistory, "conversations.history", []string{"room", "time"}, "Fetches a conversation's history of messages and events")
