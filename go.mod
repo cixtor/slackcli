@@ -1,5 +1,7 @@
 module github.com/cixtor/slackcli
 
-go 1.16
+go 1.17
 
-require github.com/cixtor/slackapi v0.0.0-20191114170000-a22a316015ec
+require github.com/cixtor/slackapi v1.0.0
+
+require golang.org/x/net v0.0.0-20220127200216-cd36cc0744dd // indirect
