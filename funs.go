@@ -106,6 +106,15 @@ func (cli *CLI) CallChatDelete() int {
 	}))
 }
 
+// CallChatDeleteAttachment sends a http request with the chat.delete action.
+func (cli *CLI) CallChatDeleteAttachment() int {
+	return cli.PrintJSON(cli.api.ChatDeleteAttachment(slackapi.ChatDeleteAttachmentInput{
+		Channel:    flag.Arg(1),
+		Ts:         flag.Arg(2),
+		Attachment: cli.Number(3, 1),
+	}))
+}
+
 // CallChatMeMessage sends a http request with the chat.meMessage action.
 func (cli *CLI) CallChatMeMessage() int {
 	return cli.PrintJSON(cli.api.ChatMeMessage(slackapi.MessageArgs{
