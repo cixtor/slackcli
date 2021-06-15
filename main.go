@@ -9,7 +9,11 @@ import (
 const binary = "slackcli"
 const version = "1.0.6"
 
+var debugMode bool
+
 func main() {
+	flag.BoolVar(&debugMode, "debug", false, "Instructs slackapi to print all HTTP requests")
+
 	cli := NewCLI(binary)
 
 	cli.AutoAuthenticate()
@@ -152,6 +156,8 @@ func main() {
 	}
 
 	flag.Parse()
+
+	cli.api.SetDebug(debugMode)
 
 	os.Exit(cli.Execute(flag.Arg(0)))
 }
