@@ -862,9 +862,3 @@ func (cli *CLI) CallWorkflowsUpdateStep() int {
 		StepName:              flag.Arg(3),
 	}))
 }
-
-// CallVersion prints the program version.
-func (cli *CLI) CallVersion() int {
-	fmt.Printf("{\"version\":\"%s\"}\n", version)
-	return 1
-}

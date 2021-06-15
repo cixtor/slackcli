@@ -6,15 +6,12 @@ import (
 	"os"
 )
 
-const binary = "slackcli"
-const version = "1.0.6"
-
 var debugMode bool
 
 func main() {
 	flag.BoolVar(&debugMode, "debug", false, "Instructs slackapi to print all HTTP requests")
 
-	cli := NewCLI(binary)
+	cli := NewCLI()
 
 	cli.AutoAuthenticate()
 
@@ -132,11 +129,10 @@ func main() {
 	cli.Register(cli.CallWorkflowsStepCompleted, "workflows.stepCompleted", []string{"workflow_step_execute_id"}, "Indicate that an app's step in a workflow completed execution")
 	cli.Register(cli.CallWorkflowsStepFailed, "workflows.stepFailed", []string{"workflow_step_execute_id", "error"}, "Indicate that an app's step in a workflow failed to execute")
 	cli.Register(cli.CallWorkflowsUpdateStep, "workflows.updateStep", []string{"workflow_step_edit_id", "step_image_url", "step_name"}, "Update the configuration for a workflow step")
-	cli.Register(cli.CallVersion, "version", []string{}, "Displays the program version number")
 	cli.Register(cli.CallHelp, "help", []string{}, "Displays usage and program options")
 
 	flag.Usage = func() {
-		fmt.Println("Slack CLI v" + version)
+		fmt.Println("Slack CLI")
 		fmt.Println("  http://cixtor.com/")
 		fmt.Println("  https://api.slack.com/")
 		fmt.Println("  https://github.com/cixtor/slackapi")

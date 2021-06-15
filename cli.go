@@ -8,7 +8,6 @@ import (
 	"log"
 	"os"
 	"strconv"
-	"strings"
 
 	"github.com/cixtor/slackapi"
 )
@@ -18,7 +17,6 @@ type Function func() int
 
 // CLI defines the core of the program.
 type CLI struct {
-	binary   string
 	api      *slackapi.SlackAPI
 	commands []Command
 }
@@ -32,10 +30,9 @@ type Command struct {
 }
 
 // NewCLI returns an instance of CLI.
-func NewCLI(binary string) *CLI {
+func NewCLI() *CLI {
 	cli := new(CLI)
 
-	cli.binary = binary
 	cli.api = slackapi.New()
 
 	return cli
@@ -66,31 +63,12 @@ func (cli *CLI) Execute(query string) int {
 
 // PrintCommands builds the usage options for the help command.
 func (cli *CLI) PrintCommands() {
-	var line string
-	var lines []string
-	var maximum int
-
 	for _, command := range cli.commands {
-		line = command.Name
-
+		fmt.Printf("  slackcli %s", command.Name)
 		for _, param := range command.Params {
-			line += fmt.Sprint("\x20[" + param + "]")
+			fmt.Printf(" [%s]", param)
 		}
-
-		if len(line) > maximum {
-			maximum = len(line)
-		}
-
-		lines = append(lines, line)
-	}
-
-	for index, line := range lines {
-		fmt.Print("\x20\x20")
-		fmt.Print(cli.binary)
-		fmt.Print("\x20" + line)
-		fmt.Print(strings.Repeat("\x20", maximum-len(line)))
-		fmt.Print("\x20" + cli.commands[index].Help)
-		fmt.Print("\n")
+		fmt.Println(" " + command.Help)
 	}
 }
 
