@@ -660,6 +660,22 @@ func (cli *CLI) CallSearchMessages() int {
 	}))
 }
 
+// CallSearchModules sends a http request with the search.modules action.
+func (cli *CLI) CallSearchModules() int {
+	return cli.PrintJSON(cli.api.SearchModules(slackapi.SearchModulesInput{
+		Module:            flag.Arg(1),
+		Query:             flag.Arg(2),
+		Count:             cli.Number(3, 100),
+		Page:              cli.Number(4, 1),
+		Sort:              "timestamp",
+		SortDir:           "desc",
+		ExcludeMyChannels: false,
+		ExtraMessageData:  true,
+		Highlight:         false,
+		NoUserProfile:     false,
+	}))
+}
+
 // CallSearchUsers sends a http request with the search.messages action.
 func (cli *CLI) CallSearchUsers() int {
 	out, err := cli.api.SearchUsers(slackapi.SearchUsersArgs{

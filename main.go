@@ -95,6 +95,7 @@ func main() {
 	cli.Register(cli.CallSearchAll, "search.all", []string{"query", "count", "page"}, "Searches for messages and files matching a query")
 	cli.Register(cli.CallSearchFiles, "search.files", []string{"query", "count", "page"}, "Searches for files matching a query")
 	cli.Register(cli.CallSearchMessages, "search.messages", []string{"query", "count", "page"}, "Searches for messages matching a query")
+	cli.Register(cli.CallSearchModules, "search.modules", []string{"module", "query", "count", "page"}, "Searches for modules matching a query")
 	cli.Register(cli.CallSearchUsers, "search.users", []string{"user", "count"}, "Search users by name or email address")
 	cli.Register(cli.CallStarsAdd, "stars.add", []string{"channel", "item_id"}, "Adds a star to an item")
 	cli.Register(cli.CallStarsList, "stars.list", []string{"count", "page"}, "Lists stars for a user")

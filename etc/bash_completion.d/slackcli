@@ -83,6 +83,7 @@ function _slackcli() {
 	COMMANDS+=" search.all"
 	COMMANDS+=" search.files"
 	COMMANDS+=" search.messages"
+	COMMANDS+=" search.modules"
 	COMMANDS+=" search.users"
 	COMMANDS+=" stars.add"
 	COMMANDS+=" stars.list"
