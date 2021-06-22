@@ -725,6 +725,14 @@ func (cli *CLI) CallTeamIntegrationLogs() int {
 	}))
 }
 
+// CallTeamListExternal sends a http request with the team.listExternal action.
+func (cli *CLI) CallTeamListExternal() int {
+	return cli.PrintJSON(cli.api.TeamListExternal(slackapi.TeamListExternalInput{
+		IncludeAllVisible:   1,
+		IncludeApprovedOrgs: 1,
+	}))
+}
+
 // CallTeamPreferencesList sends a http request with the team.preferences.list action.
 func (cli *CLI) CallTeamPreferencesList() int {
 	return cli.PrintJSON(cli.api.TeamPreferencesList())
