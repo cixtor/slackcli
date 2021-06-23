@@ -81,6 +81,7 @@ function _slackcli() {
 	COMMANDS+=" signup.checkEmail"
 	COMMANDS+=" signup.confirmEmail"
 	COMMANDS+=" search.all"
+	COMMANDS+=" search.channels"
 	COMMANDS+=" search.files"
 	COMMANDS+=" search.messages"
 	COMMANDS+=" search.modules"

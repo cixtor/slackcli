@@ -638,6 +638,22 @@ func (cli *CLI) CallSearchAll() int {
 	}))
 }
 
+// CallSearchChannels sends a http request with the search.modules action.
+func (cli *CLI) CallSearchChannels() int {
+	return cli.PrintJSON(cli.api.SearchModules(slackapi.SearchModulesInput{
+		Module:            "channels",
+		Query:             flag.Arg(1),
+		Count:             cli.Number(2, 100),
+		Page:              cli.Number(3, 1),
+		Sort:              "timestamp",
+		SortDir:           "desc",
+		ExcludeMyChannels: false,
+		ExtraMessageData:  true,
+		Highlight:         false,
+		NoUserProfile:     false,
+	}))
+}
+
 // CallSearchFiles sends a http request with the search.files action.
 func (cli *CLI) CallSearchFiles() int {
 	return cli.PrintJSON(cli.api.SearchFiles(slackapi.SearchArgs{

@@ -93,6 +93,7 @@ func main() {
 	cli.Register(cli.CallSignupCheckEmail, "signup.checkEmail", []string{"email"}, "Checks if an email address is valid")
 	cli.Register(cli.CallSignupConfirmEmail, "signup.confirmEmail", []string{"email"}, "Confirm an email address for signup")
 	cli.Register(cli.CallSearchAll, "search.all", []string{"query", "count", "page"}, "Searches for messages and files matching a query")
+	cli.Register(cli.CallSearchChannels, "search.channels", []string{"query", "count", "page"}, "Searches for channels matching a query")
 	cli.Register(cli.CallSearchFiles, "search.files", []string{"query", "count", "page"}, "Searches for files matching a query")
 	cli.Register(cli.CallSearchMessages, "search.messages", []string{"query", "count", "page"}, "Searches for messages matching a query")
 	cli.Register(cli.CallSearchModules, "search.modules", []string{"module", "query", "count", "page"}, "Searches for modules matching a query")
