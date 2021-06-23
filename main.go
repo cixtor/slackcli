@@ -104,6 +104,7 @@ func main() {
 	cli.Register(cli.CallTeamAccessLogs, "team.accessLogs", []string{"before", "count", "page"}, "Gets the access logs for the current team")
 	cli.Register(cli.CallTeamBillableInfo, "team.billableInfo", []string{"team_id", "user"}, "Gets billable users information for the current team")
 	cli.Register(cli.CallTeamBillingInfo, "team.billing.info", []string{}, "Reads a workspace's billing plan information")
+	cli.Register(cli.CallTeamChannelsInfo, "team.channels.info", []string{"team_id", "channels"}, "Retrieve a list of channels in a specific team")
 	cli.Register(cli.CallTeamInfo, "team.info", []string{"team"}, "Gets information about the current team")
 	cli.Register(cli.CallTeamIntegrationLogs, "team.integrationLogs", []string{"app_id", "change_type", "count", "page", "service_id", "team_id", "user"}, "Gets the integration logs for the current team")
 	cli.Register(cli.CallTeamListExternal, "team.listExternal", []string{}, "List external teams and their corresponding information")

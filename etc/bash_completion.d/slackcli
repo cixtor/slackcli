@@ -92,6 +92,7 @@ function _slackcli() {
 	COMMANDS+=" team.accessLogs"
 	COMMANDS+=" team.billableInfo"
 	COMMANDS+=" team.billing.info"
+	COMMANDS+=" team.channels.info"
 	COMMANDS+=" team.info"
 	COMMANDS+=" team.integrationLogs"
 	COMMANDS+=" team.listExternal"
