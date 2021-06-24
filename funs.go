@@ -356,6 +356,11 @@ func (cli *CLI) CallConversationsSetTopic() int {
 	return cli.PrintJSON(cli.api.ConversationsSetTopic(flag.Arg(1), flag.Arg(2)))
 }
 
+// CallConversationsSuggestions sends a http request with the conversations.suggestions action.
+func (cli *CLI) CallConversationsSuggestions() int {
+	return cli.PrintJSON(cli.api.ConversationsSuggestions())
+}
+
 // CallConversationsUnarchive sends a http request with the conversations.unarchive action.
 func (cli *CLI) CallConversationsUnarchive() int {
 	return cli.PrintJSON(cli.api.ConversationsUnarchive(flag.Arg(1)))

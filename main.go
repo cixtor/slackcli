@@ -59,6 +59,7 @@ func main() {
 	cli.Register(cli.CallConversationsReplies, "conversations.replies", []string{"channel", "ts", "cursor", "inclusive", "latest", "limit", "oldest"}, "Retrieve a thread of messages posted to a conversation")
 	cli.Register(cli.CallConversationsSetPurpose, "conversations.setPurpose", []string{"room", "purpose"}, "Sets the purpose for a conversation")
 	cli.Register(cli.CallConversationsSetTopic, "conversations.setTopic", []string{"room", "topic"}, "Sets the topic for a conversation")
+	cli.Register(cli.CallConversationsSuggestions, "conversations.suggestions", []string{}, "List Slack suggestions to join conversations")
 	cli.Register(cli.CallConversationsUnarchive, "conversations.unarchive", []string{"room"}, "Reverses conversation archival")
 	cli.Register(cli.CallDndEndDnd, "dnd.endDnd", []string{}, "Ends the current user's \"Do Not Disturb\" session immediately")
 	cli.Register(cli.CallDndEndSnooze, "dnd.endSnooze", []string{}, "Ends the current user's snooze mode immediately")

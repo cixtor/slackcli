@@ -47,6 +47,7 @@ function _slackcli() {
 	COMMANDS+=" conversations.replies"
 	COMMANDS+=" conversations.setPurpose"
 	COMMANDS+=" conversations.setTopic"
+	COMMANDS+=" conversations.suggestions"
 	COMMANDS+=" conversations.unarchive"
 	COMMANDS+=" dnd.endDnd"
 	COMMANDS+=" dnd.endSnooze"
