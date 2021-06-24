@@ -185,6 +185,14 @@ func (cli *CLI) CallChatUpdate() int {
 	}))
 }
 
+// CallClientCounts sends a http request with the client.counts action.
+func (cli *CLI) CallClientCounts() int {
+	return cli.PrintJSON(cli.api.ClientCounts(slackapi.ClientCountsInput{
+		OrgWideAware:          true,
+		ThreadCountsByChannel: true,
+	}))
+}
+
 // CallConversationsAcceptSharedInvite sends a http request with the conversations.acceptSharedInvite action.
 func (cli *CLI) CallConversationsAcceptSharedInvite() int {
 	return cli.PrintJSON(cli.api.ConversationsAcceptSharedInvite(slackapi.ConversationsAcceptSharedInviteInput{

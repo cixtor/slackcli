@@ -23,6 +23,7 @@ function _slackcli() {
 	COMMANDS+=" chat.postMessage"
 	COMMANDS+=" chat.robotMessage"
 	COMMANDS+=" chat.update"
+	COMMANDS+=" client.counts"
 	COMMANDS+=" conversations.acceptSharedInvite"
 	COMMANDS+=" conversations.approveSharedInvite"
 	COMMANDS+=" conversations.archive"
