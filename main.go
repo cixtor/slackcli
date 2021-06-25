@@ -36,6 +36,7 @@ func main() {
 	cli.Register(cli.CallChatRobotMessage, "chat.robotMessage", []string{"channel", "text"}, "Sends a message to a channel as a robot")
 	cli.Register(cli.CallChatUpdate, "chat.update", []string{"channel", "time", "text"}, "Updates a message")
 	cli.Register(cli.CallClientCounts, "client.counts", []string{}, "List mentions in different conversations")
+	cli.Register(cli.CallClientShouldReload, "client.shouldReload", []string{"team_ids", "version_ts", "build_version_ts", "config_version_ts"}, "Determine if the Slack client must reload or not")
 	cli.Register(cli.CallConversationsAcceptSharedInvite, "conversations.acceptSharedInvite", []string{"channel_name", "channel_id", "free_trial_accepted", "invite_id", "is_private", "team_id"}, "Accepts an invitation to a Slack Connect channel")
 	cli.Register(cli.CallConversationsApproveSharedInvite, "conversations.approveSharedInvite", []string{"invite_id", "target_team"}, "Approves an invitation to a Slack Connect channel")
 	cli.Register(cli.CallConversationsArchive, "conversations.archive", []string{"room"}, "Archives a conversation")

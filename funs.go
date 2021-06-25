@@ -193,6 +193,16 @@ func (cli *CLI) CallClientCounts() int {
 	}))
 }
 
+// CallClientShouldReload sends a http request with the client.shouldReload action.
+func (cli *CLI) CallClientShouldReload() int {
+	return cli.PrintJSON(cli.api.ClientShouldReload(slackapi.ClientShouldReloadInput{
+		TeamIDs:         flag.Arg(1),
+		VersionTs:       cli.Number(2, 1),
+		BuildVersionTs:  cli.Number(3, 1),
+		ConfigVersionTs: cli.Number(4, 1),
+	}))
+}
+
 // CallConversationsAcceptSharedInvite sends a http request with the conversations.acceptSharedInvite action.
 func (cli *CLI) CallConversationsAcceptSharedInvite() int {
 	return cli.PrintJSON(cli.api.ConversationsAcceptSharedInvite(slackapi.ConversationsAcceptSharedInviteInput{
