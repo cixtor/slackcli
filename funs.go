@@ -771,6 +771,15 @@ func (cli *CLI) CallTeamChannelsInfo() int {
 	}))
 }
 
+// CallTeamChannelsMembership sends a http request with the team.channels.membership action.
+func (cli *CLI) CallTeamChannelsMembership() int {
+	return cli.PrintJSON(cli.api.TeamChannelsMembership(slackapi.TeamChannelsMembershipInput{
+		TeamID:  flag.Arg(1),
+		Channel: flag.Arg(2),
+		UserIDs: strings.Split(flag.Arg(3), ","),
+	}))
+}
+
 // CallTeamInfo sends a http request with the team.info action.
 func (cli *CLI) CallTeamInfo() int {
 	return cli.PrintJSON(cli.api.TeamInfo(flag.Arg(1)))
