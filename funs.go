@@ -247,6 +247,11 @@ func (cli *CLI) CallConversationsDeclineSharedInvite() int {
 	}))
 }
 
+// CallConversationsDelete sends a http request with the conversations.delete action.
+func (cli *CLI) CallConversationsDelete() int {
+	return cli.PrintJSON(cli.api.ConversationsDelete(flag.Arg(1)))
+}
+
 // CallConversationsGenericInfo sends a http request with the conversations.genericInfo action.
 func (cli *CLI) CallConversationsGenericInfo() int {
 	return cli.PrintJSON(cli.api.ConversationsGenericInfo(flag.Arg(1)))
