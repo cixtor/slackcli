@@ -267,6 +267,31 @@ func (cli *CLI) CallConversationsHistory() int {
 	))
 }
 
+// CallConversationsID sends a http request with the conversations.id action.
+func (cli *CLI) CallConversationsID() int {
+	channel := flag.Arg(1)
+	result := cli.api.SearchModules(slackapi.SearchModulesInput{
+		Module:            "channels",
+		Query:             channel,
+		Count:             cli.Number(2, 100),
+		Page:              cli.Number(3, 1),
+		Sort:              "timestamp",
+		SortDir:           "desc",
+		ExcludeMyChannels: false,
+		ExtraMessageData:  false,
+		Highlight:         false,
+		NoUserProfile:     false,
+	})
+
+	for _, item := range result.Items {
+		if item.Name == channel {
+			return cli.PrintJSON(item.ID)
+		}
+	}
+
+	return 0
+}
+
 // CallConversationsInfo sends a http request with the conversations.info action.
 func (cli *CLI) CallConversationsInfo() int {
 	return cli.PrintJSON(cli.api.ConversationsInfo(flag.Arg(1)))

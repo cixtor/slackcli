@@ -46,6 +46,7 @@ func main() {
 	cli.Register(cli.CallConversationsDelete, "conversations.delete", []string{"channel"}, "Delete a public or private channel")
 	cli.Register(cli.CallConversationsGenericInfo, "conversations.genericInfo", []string{"channels"}, "Retrieve information about various channels")
 	cli.Register(cli.CallConversationsHistory, "conversations.history", []string{"room", "time"}, "Fetches a conversation's history of messages and events")
+	cli.Register(cli.CallConversationsID, "conversations.id", []string{"room"}, "Prints the conversation ID fo the specified room")
 	cli.Register(cli.CallConversationsInfo, "conversations.info", []string{"room"}, "Retrieve information about a conversation")
 	cli.Register(cli.CallConversationsInvite, "conversations.invite", []string{"room", "user"}, "Invites users to a channel")
 	cli.Register(cli.CallConversationsInviteShared, "conversations.inviteShared", []string{"channel", "emails", "external_limited", "user_ids"}, "Sends an invitation to a Slack Connect channel")

@@ -34,6 +34,7 @@ function _slackcli() {
 	COMMANDS+=" conversations.delete"
 	COMMANDS+=" conversations.genericInfo"
 	COMMANDS+=" conversations.history"
+	COMMANDS+=" conversations.id"
 	COMMANDS+=" conversations.info"
 	COMMANDS+=" conversations.invite"
 	COMMANDS+=" conversations.inviteShared"
