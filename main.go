@@ -156,7 +156,7 @@ func main() {
 		fmt.Println("  purpose.")
 		fmt.Println()
 		fmt.Println("Usage:")
-
+		flag.PrintDefaults()
 		cli.PrintCommands()
 	}
 
