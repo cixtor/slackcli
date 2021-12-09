@@ -87,6 +87,7 @@ func main() {
 	cli.Register(cli.CallFilesUpload, "files.upload", []string{"channel", "filename"}, "Uploads or creates a file from local data")
 	cli.Register(cli.CallHelpIssuesList, "help.issues.list", []string{}, "List issues reported by the current user")
 	cli.Register(cli.CallMigrationExchange, "migration.exchange", []string{"users", "order"}, "For Enterprise Grid workspaces, map local user IDs to global user IDs")
+	cli.Register(cli.CallPaymentsBillingAddressesGet, "payments.billing.addresses.get", []string{}, "Gets the organization billing address")
 	cli.Register(cli.CallPinsAdd, "pins.add", []string{"channel", "item_id"}, "Pins an item to a channel")
 	cli.Register(cli.CallPinsList, "pins.list", []string{"channel"}, "Lists items pinned to a channel")
 	cli.Register(cli.CallPinsRemove, "pins.remove", []string{"channel", "item_id"}, "Un-pins an item from a channel")

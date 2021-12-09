@@ -576,6 +576,11 @@ func (cli *CLI) CallMigrationExchange() int {
 	return cli.PrintJSON(cli.api.MigrationExchange(users, order))
 }
 
+// CallPaymentsBillingAddressesGet sends a http request with the payments.billing.addresses.get action.
+func (cli *CLI) CallPaymentsBillingAddressesGet() int {
+	return cli.PrintJSON(cli.api.PaymentsBillingAddressesGet())
+}
+
 // CallPinsAdd sends a http request with the pins.add action.
 func (cli *CLI) CallPinsAdd() int {
 	return cli.PrintJSON(cli.api.PinsAdd(flag.Arg(1), flag.Arg(2)))

@@ -75,6 +75,7 @@ function _slackcli() {
 	COMMANDS+=" files.upload"
 	COMMANDS+=" help.issues.list"
 	COMMANDS+=" migration.exchange"
+	COMMANDS+=" payments.billing.addresses.get"
 	COMMANDS+=" pins.add"
 	COMMANDS+=" pins.list"
 	COMMANDS+=" pins.remove"
