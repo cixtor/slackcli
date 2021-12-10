@@ -16,6 +16,7 @@ func main() {
 	cli.AutoAuthenticate()
 
 	cli.Register(cli.CallAPITest, "api.test", []string{"error"}, "Checks API calling code")
+	cli.Register(cli.CallAPIGetFlannelHTTPURL, "api.getFlannelHttpUrl", []string{}, "Gets the organization's canonical API endpoint")
 	cli.Register(cli.CallAppsConnectionsOpen, "apps.connections.open", []string{}, "Generate a temporary Socket Mode WebSocket URL that your app can connect to in order to receive events and interactive payloads over")
 	cli.Register(cli.CallAppsEventAuthorizationsList, "apps.event.authorizations.list", []string{"event_context", "cursor", "limit"}, "Get a list of authorizations for the given event context. Each authorization represents an app installation that the event is visible to")
 	cli.Register(cli.CallAppsList, "apps.list", []string{}, "Lists associated applications")

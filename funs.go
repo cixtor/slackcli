@@ -21,6 +21,11 @@ func (cli *CLI) CallAPITest() int {
 	return cli.PrintJSON(cli.api.APITest(flag.Arg(1)))
 }
 
+// CallAPIGetFlannelHTTPURL sends a http request with the api.getFlannelHttpUrl action.
+func (cli *CLI) CallAPIGetFlannelHTTPURL() int {
+	return cli.PrintJSON(cli.api.APIGetFlannelHTTPURL())
+}
+
 // CallAppsConnectionsOpen sends a http request with the apps.connections.open action.
 func (cli *CLI) CallAppsConnectionsOpen() int {
 	return cli.PrintJSON(cli.api.AppsConnectionsOpen())

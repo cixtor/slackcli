@@ -4,6 +4,7 @@ function _slackcli() {
 	CURSOR="${COMP_WORDS[COMP_CWORD]}"
 	COMMANDS=""
 	COMMANDS+=" api.test"
+	COMMANDS+=" api.getFlannelHttpUrl"
 	COMMANDS+=" apps.connections.open"
 	COMMANDS+=" apps.event.authorizations.list"
 	COMMANDS+=" apps.list"
