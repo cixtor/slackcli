@@ -89,6 +89,7 @@ func main() {
 	cli.Register(cli.CallHelpIssuesList, "help.issues.list", []string{}, "List issues reported by the current user")
 	cli.Register(cli.CallMigrationExchange, "migration.exchange", []string{"users", "order"}, "For Enterprise Grid workspaces, map local user IDs to global user IDs")
 	cli.Register(cli.CallPaymentsBillingAddressesGet, "payments.billing.addresses.get", []string{}, "Gets the organization billing address")
+	cli.Register(cli.CallPaymentsBillingAddressesValidateAndSet, "payments.billing.addresses.validateAndSet", []string{"company_name", "street1", "street2", "city", "state", "zip", "country", "vat_id", "abn_id", "tax_id", "is_business", "is_checkout_v2", "is_vat_registered", "waiting_for_vat", "notes"}, "Validates and sets the organization billing address")
 	cli.Register(cli.CallPinsAdd, "pins.add", []string{"channel", "item_id"}, "Pins an item to a channel")
 	cli.Register(cli.CallPinsList, "pins.list", []string{"channel"}, "Lists items pinned to a channel")
 	cli.Register(cli.CallPinsRemove, "pins.remove", []string{"channel", "item_id"}, "Un-pins an item from a channel")

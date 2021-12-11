@@ -586,6 +586,30 @@ func (cli *CLI) CallPaymentsBillingAddressesGet() int {
 	return cli.PrintJSON(cli.api.PaymentsBillingAddressesGet())
 }
 
+// CallPaymentsBillingAddressesValidateAndSet sends a http request with the payments.billing.addresses.validateAndSet action.
+func (cli *CLI) CallPaymentsBillingAddressesValidateAndSet() int {
+	var input slackapi.PaymentsBillingAddressesValidateAndSetInput
+
+	input.CheckoutStep = "form"
+	input.CompanyName = flag.Arg(1)
+	input.Street1 = flag.Arg(2)
+	input.Street2 = flag.Arg(3)
+	input.City = flag.Arg(4)
+	input.State = flag.Arg(5)
+	input.Zip = flag.Arg(6)
+	input.Country = flag.Arg(7)
+	input.VatID = flag.Arg(8)
+	input.AbnID = flag.Arg(9)
+	input.TaxID = flag.Arg(10)
+	input.IsBusiness = flag.Arg(11) == "true"
+	input.IsCheckoutV2 = flag.Arg(12) == "true"
+	input.IsVatRegistered = flag.Arg(13) == "true"
+	input.WaitingForVat = flag.Arg(14) == "true"
+	input.Notes = flag.Arg(15)
+
+	return cli.PrintJSON(cli.api.PaymentsBillingAddressesValidateAndSet(input))
+}
+
 // CallPinsAdd sends a http request with the pins.add action.
 func (cli *CLI) CallPinsAdd() int {
 	return cli.PrintJSON(cli.api.PinsAdd(flag.Arg(1), flag.Arg(2)))
