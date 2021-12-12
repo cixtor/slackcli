@@ -478,7 +478,7 @@ func (cli *CLI) CallFilesInfo() int {
 func (cli *CLI) CallFilesList() int {
 	return cli.PrintJSON(cli.api.FilesList(slackapi.FileListArgs{
 		Count: cli.Number(1, 1000),
-		Page:  cli.Number(2, 1),
+		Page:  cli.Number(2, 0),
 	}))
 }
 
@@ -487,7 +487,7 @@ func (cli *CLI) CallFilesListAfterTime() int {
 	return cli.PrintJSON(cli.api.FilesList(slackapi.FileListArgs{
 		TsFrom: flag.Arg(1),
 		Count:  cli.Number(2, 1000),
-		Page:   cli.Number(3, 1),
+		Page:   cli.Number(3, 0),
 	}))
 }
 
@@ -496,7 +496,7 @@ func (cli *CLI) CallFilesListBeforeTime() int {
 	return cli.PrintJSON(cli.api.FilesList(slackapi.FileListArgs{
 		TsTo:  flag.Arg(1),
 		Count: cli.Number(2, 1000),
-		Page:  cli.Number(3, 1),
+		Page:  cli.Number(3, 0),
 	}))
 }
 
@@ -505,7 +505,7 @@ func (cli *CLI) CallFilesListByChannel() int {
 	return cli.PrintJSON(cli.api.FilesList(slackapi.FileListArgs{
 		Channel: flag.Arg(1),
 		Count:   cli.Number(2, 1000),
-		Page:    cli.Number(3, 1),
+		Page:    cli.Number(3, 0),
 	}))
 }
 
@@ -514,7 +514,7 @@ func (cli *CLI) CallFilesListByType() int {
 	return cli.PrintJSON(cli.api.FilesList(slackapi.FileListArgs{
 		Types: flag.Arg(1),
 		Count: cli.Number(2, 1000),
-		Page:  cli.Number(3, 1),
+		Page:  cli.Number(3, 0),
 	}))
 }
 
@@ -523,7 +523,7 @@ func (cli *CLI) CallFilesListByUser() int {
 	return cli.PrintJSON(cli.api.FilesList(slackapi.FileListArgs{
 		User:  flag.Arg(1),
 		Count: cli.Number(2, 1000),
-		Page:  cli.Number(3, 1),
+		Page:  cli.Number(3, 0),
 	}))
 }
 
